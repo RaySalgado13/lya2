@@ -1,0 +1,43 @@
+PARSER_BEGIN(Analizador_Angel)
+    	public class Analizador_Angel
+	{
+		public static void main (String[] args) throws ParseException{
+		Analizador_Angel
+	 anLex = new Analizador_Angel
+	(System.in);
+		anLex.unaExpresion();		
+		System.out.println("Analisis Terminado.");
+		}
+}
+PARSER_END(Analizador_Angel)
+
+TOKEN: { <ENTERO: (["0"-"9"])+ > {System.out.println("numero: " + image);}	}
+TOKEN: { <PUNTO: "." >	}
+TOKEN: { <REALES: (<ENTERO>)+ <PUNTO> (<ENTERO>)+ > {System.out.println("Real: " + image);}	}
+
+TOKEN: { <IGUAL: "=" > {System.out.println("Igual: " + image);}	}
+TOKEN: { <OPAND: "&&" >	{System.out.println("AND: " + image);}	}
+TOKEN: { <MENORQUE: "<" >	{System.out.println("Menor: " + image);}	}
+TOKEN: { <MAYORQUE: ">" >	{System.out.println("Mayor: " + image);}	}
+TOKEN: { <MAYORIGUALQUE: ">=" >	{System.out.println("Mayor igual: " + image); }	}
+TOKEN: { <MENORIGUALQUE: "<=" >	{System.out.println("Menor igual: " + image); }	}
+TOKEN: { <SUMA: "+" > {System.out.println("Suma: " + image);}	}
+TOKEN: { <RESTA: "-" > {System.out.println("Resta: " + image);}	}
+TOKEN: { <MULTIPLICACION: "*" > {System.out.println("Multiplicacion: : " + image);}	}
+TOKEN: { <DIVISION: "/" > {System.out.println("Division: " + image);}	}
+TOKEN: { <NEGACION: "!" > {System.out.println("Negacion: " + image);}	}
+
+
+
+
+SKIP: 
+{
+	" " | "\t" | "\n" | "\r"
+}
+
+SKIP: {<~[]>{}}
+
+void unaExpresion(): {}
+{
+	(<ENTERO> | <REALES> | <PUNTO> | <OPAND> | <MENORQUE> | <MAYORQUE> | <MAYORIGUALQUE> | <MENORIGUALQUE> | <SUMA> | <RESTA> | <MULTIPLICACION> | <DIVISION> | <NEGACION>)+ <EOF>
+}
