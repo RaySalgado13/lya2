@@ -11,9 +11,39 @@ PARSER_BEGIN(Analizador_Angel)
 }
 PARSER_END(Analizador_Angel)
 
-TOKEN: { <ENTERO: (["0"-"9"])+ > {System.out.println("numero: " + image);}	}
+TOKEN: { <CLASS: "class" >	{System.out.println("clase: " + image);}	}
+TOKEN: { <PUBLIC: "public" >	{System.out.println("public: " + image);}	}
+TOKEN: { <STATIC: "static" > {System.out.println("static: " + image);}	}
+TOKEN: { <VOID: "void" > {System.out.println("void: " + image);}	}
+TOKEN: { <MAIN: "main" >	{System.out.println("main: " + image);}	}
+TOKEN: { <STRING: "String" >	{System.out.println("String: " + image);}	}
+TOKEN: { <RETURN: "return" > {System.out.println("return : " + image);}	}
+TOKEN: { <EXTENDS: "extends" > {System.out.println("extends: " + image);}	}
+TOKEN: { <INT: "int" > {System.out.println("int: " + image);}	}
+TOKEN: { <BOOLEAN: "boolean" >	{System.out.println("boolean: " + image);}	}
+TOKEN: { <FLOAT: "float" >	{System.out.println("float: " + image);}}
+TOKEN: { <IF: "if" >	{System.out.println("if: " + image);}}
+TOKEN: { <ELSE: "else" >	{System.out.println("else: " + image);}	}
+TOKEN: { <WHILE :"while"> {System.out.println("while: " + image);}	}
+TOKEN: { <TRUE: "true"> 	{System.out.println("true: " + image);}	}
+TOKEN: { <FALSE: "false">	{System.out.println("false: " + image);}	}
+TOKEN: { <THIS: "this">	{System.out.println("this : " + image);}	}
+TOKEN: { <NEW: "new"> {System.out.println("next: " + image);}	}
+TOKEN: { <PRINT: "System.out.println"> {System.out.println("print: " + image);}	}
+
+TOKEN: { <OPCORCHETE: "[" > 	{System.out.println("Abre corchete: " + image);}	}
+TOKEN: { <CLCORCHETE: "]"	> 	{System.out.println("Cierra corchete: " + image);}	}
+TOKEN: { <OPPARENTESIS: "("	> 	{System.out.println("Abre parentesis: " + image);}	}
+TOKEN: { <CLPARENTESIS: ")"	> 	{System.out.println("Cierra parentesis: " + image);}	}
+TOKEN: { <OPLLAVES: "{"	> 	{System.out.println("Abre llaves: " + image);}	}
+TOKEN: { <CLLLAVES: "}"	> 	{System.out.println("Cierra llaves: "  + image);}	}
+TOKEN: { <FINSENTENCIA: ";"	> 	{System.out.println("Fin de sentencia: " + image);}	}
+
+
+TOKEN: {<NUMERO: ["0"-"9"] >	{System.out.println("numero: " + image);}	}
+TOKEN: { <ENTERO: (<NUMERO>)+ > {System.out.println("numero: " + image);}	}
 TOKEN: { <PUNTO: "." >	}
-TOKEN: { <REALES: (<ENTERO>)+ <PUNTO> (<ENTERO>)+ > {System.out.println("Real: " + image);}	}
+TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ > {System.out.println("Real: " + image);}	}
 
 TOKEN: { <IGUAL: "=" > {System.out.println("Igual: " + image);}	}
 TOKEN: { <OPAND: "&&" >	{System.out.println("AND: " + image);}	}
@@ -28,6 +58,10 @@ TOKEN: { <DIVISION: "/" > {System.out.println("Division: " + image);}	}
 TOKEN: { <NEGACION: "!" > {System.out.println("Negacion: " + image);}	}
 
 
+TOKEN: { <MAYUSCULA:  ["A"-"Z"] >	{System.out.println("Identificador : " + image); }	}
+TOKEN: { <MINUSCULA:  ["a"-"z"] >	{System.out.println("Identificador : " + image); }	}
+TOKEN: { <GUIONES: "_" >	}
+TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )+ ) > {System.out.println("Identificador : " + image); }	}
 
 
 SKIP: 
@@ -39,5 +73,9 @@ SKIP: {<~[]>{}}
 
 void unaExpresion(): {}
 {
-	(<ENTERO> | <REALES> | <PUNTO> | <OPAND> | <MENORQUE> | <MAYORQUE> | <MAYORIGUALQUE> | <MENORIGUALQUE> | <SUMA> | <RESTA> | <MULTIPLICACION> | <DIVISION> | <NEGACION>)+ <EOF>
+	( <CLASS> | <PUBLIC> | <STATIC> | <VOID> | <MAIN> | <STRING> | <RETURN> | <EXTENDS> | <INT> | <BOOLEAN> | <FLOAT> | <IF> | <ELSE> | <WHILE> | <TRUE> | 
+	<FALSE> | <THIS> | <NEW> | <PRINT> | 
+	<OPCORCHETE> | <CLCORCHETE> | <OPPARENTESIS> | <CLPARENTESIS> | <OPLLAVES> | <CLLLAVES> | <FINSENTENCIA> | 
+	<NUMERO> | <ENTERO> | <REALES> | <PUNTO> | <IGUAL> | <OPAND> | <MENORQUE> | <MAYORQUE> | <MAYORIGUALQUE> | <MENORIGUALQUE> | 
+	<SUMA> | <RESTA> | <MULTIPLICACION> | <DIVISION> | <NEGACION>| <MAYUSCULA> | <MINUSCULA> | <IDENTIFICADOR> )+ <EOF>
 }
