@@ -1,15 +1,15 @@
-PARSER_BEGIN(Analizador_Angel)
-    	public class Analizador_Angel
+PARSER_BEGIN(Main)
+    	public class Main
 	{
 		public static void main (String[] args) throws ParseException{
-		Analizador_Angel
-	 anLex = new Analizador_Angel
+		Main
+	 anLex = new Main
 	(System.in);
 		anLex.unaExpresion();		
 		System.out.println("Analisis Terminado.");
 		}
 }
-PARSER_END(Analizador_Angel)
+PARSER_END(Main)
 
 TOKEN: { <CLASS: "class" >	{System.out.println("clase: " + image);}	}
 TOKEN: { <PUBLIC: "public" >	{System.out.println("public: " + image);}	}
