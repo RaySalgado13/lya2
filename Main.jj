@@ -64,6 +64,34 @@ TOKEN: { <GUIONES: "_" >	}
 TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )+ ) > {System.out.println("Identificador : " + image); }	}
 
 
+MORE :{
+	"//": SINGLECOMMENT
+}
+
+<SINGLECOMMENT> SKIP:
+{
+    <STRLIT:"\n">: DEFAULT
+}
+
+<SINGLECOMMENT> MORE:{
+    <~[]>
+}
+
+MORE :{
+	"/*": MULTIPLECOMMENT
+}
+
+<MULTIPLECOMMENT> SKIP:
+{
+    <STRLOT:"*/">: DEFAULT
+}
+
+<MULTIPLECOMMENT> MORE:
+{
+    <~[]>
+}
+
+
 SKIP: 
 {
 	" " | "\t" | "\n" | "\r"
