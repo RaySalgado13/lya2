@@ -10,62 +10,61 @@ PARSER_BEGIN(Main)
 		}
 }
 PARSER_END(Main)
+TOKEN: { <CLASS: "class" >	{System.out.println(matchedToken.beginLine + " : clase: " + image);}	}
+TOKEN: { <PUBLIC: "public" >	{System.out.println(matchedToken.beginLine + " : public: " + image);}	}
+TOKEN: { <STATIC: "static" > {System.out.println(matchedToken.beginLine + " : static: " + image);}	}
+TOKEN: { <VOID: "void" > {System.out.println(matchedToken.beginLine + " :void: " + image);}	}
+TOKEN: { <MAIN: "main" >	{System.out.println(matchedToken.beginLine +  " : main: " + image);}	}
+TOKEN: { <STRING: "String" >	{System.out.println(matchedToken.beginLine +  " : String: " + image);}	}
+TOKEN: { <RETURN: "return" > {System.out.println(matchedToken.beginLine +  " : return : " + image);}	}
+TOKEN: { <EXTENDS: "extends" > {System.out.println(matchedToken.beginLine +  " : extends: " + image);}	}
+TOKEN: { <INT: "int" > {System.out.println(matchedToken.beginLine +  " int: " + image);}	}
+TOKEN: { <BOOLEAN: "boolean" >	{System.out.println(matchedToken.beginLine + " : boolean: " + image);}	}
+TOKEN: { <FLOAT: "float" >	{System.out.println(matchedToken.beginLine + " : float: " + image);}}
+TOKEN: { <IF: "if" >	{System.out.println(matchedToken.beginLine + " if: " + image);}}
+TOKEN: { <ELSE: "else" >	{System.out.println(matchedToken.beginLine + " else: " + image);}	}
+TOKEN: { <WHILE :"while"> {System.out.println(matchedToken.beginLine + " while: " + image);}	}
+TOKEN: { <TRUE: "true"> 	{System.out.println(matchedToken.beginLine + " true: " + image);}	}
+TOKEN: { <FALSE: "false">	{System.out.println(matchedToken.beginLine +  " false: " + image);}	}
+TOKEN: { <THIS: "this">	{System.out.println(matchedToken.beginLine +  " this : " + image);}	}
+TOKEN: { <NEW: "new"> {System.out.println(matchedToken.beginLine +  " next: " + image);}	}
+TOKEN: { <PRINT: "System.out.println"> {System.out.println(matchedToken.beginLine + " print: " + image);}	}
 
-TOKEN: { <CLASS: "class" >	{System.out.println("clase: " + image);}	}
-TOKEN: { <PUBLIC: "public" >	{System.out.println("public: " + image);}	}
-TOKEN: { <STATIC: "static" > {System.out.println("static: " + image);}	}
-TOKEN: { <VOID: "void" > {System.out.println("void: " + image);}	}
-TOKEN: { <MAIN: "main" >	{System.out.println("main: " + image);}	}
-TOKEN: { <STRING: "String" >	{System.out.println("String: " + image);}	}
-TOKEN: { <RETURN: "return" > {System.out.println("return : " + image);}	}
-TOKEN: { <EXTENDS: "extends" > {System.out.println("extends: " + image);}	}
-TOKEN: { <INT: "int" > {System.out.println("int: " + image);}	}
-TOKEN: { <BOOLEAN: "boolean" >	{System.out.println("boolean: " + image);}	}
-TOKEN: { <FLOAT: "float" >	{System.out.println("float: " + image);}}
-TOKEN: { <IF: "if" >	{System.out.println("if: " + image);}}
-TOKEN: { <ELSE: "else" >	{System.out.println("else: " + image);}	}
-TOKEN: { <WHILE :"while"> {System.out.println("while: " + image);}	}
-TOKEN: { <TRUE: "true"> 	{System.out.println("true: " + image);}	}
-TOKEN: { <FALSE: "false">	{System.out.println("false: " + image);}	}
-TOKEN: { <THIS: "this">	{System.out.println("this : " + image);}	}
-TOKEN: { <NEW: "new"> {System.out.println("next: " + image);}	}
-TOKEN: { <PRINT: "System.out.println"> {System.out.println("print: " + image);}	}
-
-TOKEN: { <OPCORCHETE: "[" > 	{System.out.println("Abre corchete: " + image);}	}
-TOKEN: { <CLCORCHETE: "]"	> 	{System.out.println("Cierra corchete: " + image);}	}
-TOKEN: { <OPPARENTESIS: "("	> 	{System.out.println("Abre parentesis: " + image);}	}
-TOKEN: { <CLPARENTESIS: ")"	> 	{System.out.println("Cierra parentesis: " + image);}	}
-TOKEN: { <OPLLAVES: "{"	> 	{System.out.println("Abre llaves: " + image);}	}
-TOKEN: { <CLLLAVES: "}"	> 	{System.out.println("Cierra llaves: "  + image);}	}
-TOKEN: { <FINSENTENCIA: ";"	> 	{System.out.println("Fin de sentencia: " + image);}	}
-
-
-TOKEN: {<NUMERO: ["0"-"9"] >	{System.out.println("numero: " + image);}	}
-TOKEN: { <ENTERO: (<NUMERO>)+ > {System.out.println("numero: " + image);}	}
-TOKEN: { <PUNTO: "." > {System.out.println("punto: " + image);}	}
-TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ > {System.out.println("Real: " + image);}	}
-
-TOKEN: { <IGUAL: "=" > {System.out.println("Igual: " + image);}	}
-TOKEN: { <OPAND: "&&" >	{System.out.println("AND: " + image);}	}
-TOKEN: { <MENORQUE: "<" >	{System.out.println("Menor: " + image);}	}
-TOKEN: { <MAYORQUE: ">" >	{System.out.println("Mayor: " + image);}	}
-TOKEN: { <MAYORIGUALQUE: ">=" >	{System.out.println("Mayor igual: " + image); }	}
-TOKEN: { <MENORIGUALQUE: "<=" >	{System.out.println("Menor igual: " + image); }	}
-TOKEN: { <SUMA: "+" > {System.out.println("Suma: " + image);}	}
-TOKEN: { <RESTA: "-" > {System.out.println("Resta: " + image);}	}
-TOKEN: { <MULTIPLICACION: "*" > {System.out.println("Multiplicacion: : " + image);}	}
-TOKEN: { <DIVISION: "/" > {System.out.println("Division: " + image);}	}
-TOKEN: { <NEGACION: "!" > {System.out.println("Negacion: " + image);}	}
+TOKEN: { <OPCORCHETE: "[" > 	{System.out.println(matchedToken.beginLine + " Abre corchete: " + image);}	}
+TOKEN: { <CLCORCHETE: "]"	> 	{System.out.println(matchedToken.beginLine +  " Cierra corchete: " + image);}	}
+TOKEN: { <OPPARENTESIS: "("	> 	{System.out.println(matchedToken.beginLine +  " Abre parentesis: " + image);}	}
+TOKEN: { <CLPARENTESIS: ")"	> 	{System.out.println(matchedToken.beginLine +  " Cierra parentesis: " + image);}	}
+TOKEN: { <OPLLAVES: "{"	> 	{System.out.println(matchedToken.beginLine + " Abre llaves: " + image);}	}
+TOKEN: { <CLLLAVES: "}"	> 	{System.out.println(matchedToken.beginLine + " Cierra llaves: "  + image);}	}
+TOKEN: { <FINSENTENCIA: ";"	> 	{System.out.println(matchedToken.beginLine + " Fin de sentencia: " + image);}	}
 
 
-TOKEN: { <MAYUSCULA:  ["A"-"Z"] >	{System.out.println("Identificador : " + image); }	}
-TOKEN: { <MINUSCULA:  ["a"-"z"] >	{System.out.println("Identificador : " + image); }	}
-TOKEN: { <GUIONES: "_" >	}
-TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )+ ) > {System.out.println("Identificador : " + image); }	}
+TOKEN: {<NUMERO: ["0"-"9"] >	{System.out.println(matchedToken.beginLine +  " numero: " + image);}	}
+TOKEN: { <ENTERO: (<NUMERO>)+ > {System.out.println(matchedToken.beginLine + " numero: " + image);}	}
+TOKEN: { <PUNTO: "." > {System.out.println(matchedToken.beginLine + " punto: " + image);}	}
+TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ > {System.out.println(matchedToken.beginLine + " Real: " + image);}	}
+
+TOKEN: { <IGUAL: "=" > {System.out.println(matchedToken.beginLine +  " Igual: " + image);}	}
+TOKEN: { <OPAND: "&&" >	{System.out.println(matchedToken.beginLine + " AND: " + image);}	}
+TOKEN: { <MENORQUE: "<" >	{System.out.println(matchedToken.beginLine + " Menor: " + image);}	}
+TOKEN: { <MAYORQUE: ">" >	{System.out.println(matchedToken.beginLine + " Mayor: " + image);}	}
+TOKEN: { <MAYORIGUALQUE: ">=" >	{System.out.println(matchedToken.beginLine + " Mayor igual: " + image); }	}
+TOKEN: { <MENORIGUALQUE: "<=" >	{System.out.println(matchedToken.beginLine +  " Menor igual: " + image); }	}
+TOKEN: { <SUMA: "+" > {System.out.println(matchedToken.beginLine + " Suma: " + image);}	}
+TOKEN: { <RESTA: "-" > {System.out.println(matchedToken.beginLine +  " Resta: " + image);}	}
+TOKEN: { <MULTIPLICACION: "*" > {System.out.println( matchedToken.beginLine + " Multiplicacion: : " + image);}	}
+TOKEN: { <DIVISION: "/" > {System.out.println(matchedToken.beginLine +  " Division: " + image);}	}
+TOKEN: { <NEGACION: "!" > {System.out.println(matchedToken.beginLine +  " Negacion: " + image);}	}
+
+
+TOKEN: { <MAYUSCULA:  ["A"-"Z"] >	{System.out.println(matchedToken.beginLine + " Identificador : " + image); }	}
+TOKEN: { <MINUSCULA:  ["a"-"z"] >	{System.out.println(matchedToken.beginLine + " Identificador : " + image); }	}
+TOKEN: { <GUIONES: "_" > {System.out.println(matchedToken.beginLine + " guion: " + image);}	}
+TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )+ ) > {System.out.println(matchedToken.beginLine + " Identificador : " + image); }	}
 TOKEN:{
-	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> > {System.out.println("Error en línea "+matchedToken.beginLine+" identificador incorrecto: "+image);}
+	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> > {System.out.println(matchedToken.beginLine + " Error en línea "+matchedToken.beginLine+" identificador incorrecto: "+image);}
 	|
-	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)> {System.out.println("Error en línea "+matchedToken.beginLine+" expresion incorrecta "+image);}
+	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)> {System.out.println(matchedToken.beginLine +  " Error en línea "+matchedToken.beginLine+" expresion incorrecta "+image);}
 
 }
 
