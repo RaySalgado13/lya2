@@ -1,75 +1,75 @@
-clase: class
-Identificador : Factorial
-Abre llaves: {
-public: public
-static: static
-void: void
-main: main
-Abre parentesis: (
-String: String
-Abre corchete: [
-Cierra corchete: ]
-Identificador : a
-Cierra parentesis: )
-Abre llaves: {
-print: System.out.println
-Abre parentesis: (
-next: new
-Identificador : Fac
-Abre parentesis: (
-Cierra parentesis: )
-punto: .
-Identificador : ComputeFac
-Abre parentesis: (
-numero: 10
-Cierra parentesis: )
-Cierra parentesis: )
-Fin de sentencia: ;
-Cierra llaves: }
-Cierra llaves: }
-clase: class
-Identificador : Fac
-Abre llaves: {
-public: public
-int: int
-Identificador : ComputeFac
-Abre parentesis: (
-int: int
-Identificador : num
-Cierra parentesis: )
-Abre llaves: {
-int: int
-Identificador : num_aux
-Fin de sentencia: ;
-if: if
-Abre parentesis: (
-Identificador : num
-Menor: <
-numero: 1
-Cierra parentesis: )
-Identificador : num_aux
-Igual: =
-numero: 1
-Fin de sentencia: ;
-else: else
-Identificador : num_aux
-Igual: =
-Identificador : num
-Multiplicacion: : *
-Abre parentesis: (
-this : this
-punto: .
-Identificador : ComputeFac
-Abre parentesis: (
-Identificador : num
-Resta: -
-numero: 1
-Cierra parentesis: )
-Cierra parentesis: )
-Fin de sentencia: ;
-return : return
-Identificador : num_aux
-Fin de sentencia: ;
-Cierra llaves: }
-Cierra llaves: }
+4 : clase: class
+4 Identificador : Factorial
+4 Abre llaves: {
+5 : public: public
+5 : static: static
+5 :void: void
+5 : main: main
+5 Abre parentesis: (
+5 : String: String
+5 Abre corchete: [
+5 Cierra corchete: ]
+5 Identificador : a
+5 Cierra parentesis: )
+5 Abre llaves: {
+6 print: System.out.println
+6 Abre parentesis: (
+6 next: new
+6 Identificador : Fac
+6 Abre parentesis: (
+6 Cierra parentesis: )
+6 punto: .
+6 Identificador : ComputeFac
+6 Abre parentesis: (
+6 numero: 10
+6 Cierra parentesis: )
+6 Cierra parentesis: )
+6 Fin de sentencia: ;
+7 Cierra llaves: }
+8 Cierra llaves: }
+10 : clase: class
+10 Identificador : Fac
+10 Abre llaves: {
+11 : public: public
+11 int: int
+11 Identificador : ComputeFac
+11 Abre parentesis: (
+11 int: int
+11 Identificador : num
+11 Cierra parentesis: )
+11 Abre llaves: {
+12 int: int
+12 Identificador : num_aux
+12 Fin de sentencia: ;
+14 if: if
+14 Abre parentesis: (
+14 Identificador : num
+14 Menor: <
+14 numero: 1
+14 Cierra parentesis: )
+14 Identificador : num_aux
+14 Igual: =
+14 numero: 1
+14 Fin de sentencia: ;
+15 else: else
+15 Identificador : num_aux
+15 Igual: =
+15 Identificador : num
+15 Multiplicacion: : *
+15 Abre parentesis: (
+15 this : this
+15 punto: .
+15 Identificador : ComputeFac
+15 Abre parentesis: (
+15 Identificador : num
+15 Resta: -
+15 numero: 1
+15 Cierra parentesis: )
+15 Cierra parentesis: )
+15 Fin de sentencia: ;
+17 : return : return
+17 Identificador : num_aux
+17 Fin de sentencia: ;
+18 Cierra llaves: }
+19 Cierra llaves: }
 Analisis Terminado.
