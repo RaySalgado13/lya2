@@ -42,7 +42,7 @@ TOKEN: { <FINSENTENCIA: ";"	> 	{System.out.println("Fin de sentencia: " + image)
 
 TOKEN: {<NUMERO: ["0"-"9"] >	{System.out.println("numero: " + image);}	}
 TOKEN: { <ENTERO: (<NUMERO>)+ > {System.out.println("numero: " + image);}	}
-TOKEN: { <PUNTO: "." >	}
+TOKEN: { <PUNTO: "." > {System.out.println("punto: " + image);}	}
 TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ > {System.out.println("Real: " + image);}	}
 
 TOKEN: { <IGUAL: "=" > {System.out.println("Igual: " + image);}	}
@@ -62,7 +62,12 @@ TOKEN: { <MAYUSCULA:  ["A"-"Z"] >	{System.out.println("Identificador : " + image
 TOKEN: { <MINUSCULA:  ["a"-"z"] >	{System.out.println("Identificador : " + image); }	}
 TOKEN: { <GUIONES: "_" >	}
 TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )+ ) > {System.out.println("Identificador : " + image); }	}
+TOKEN:{
+	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> > {System.out.println("Error en línea "+matchedToken.beginLine+" identificador incorrecto: "+image);}
+	|
+	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)> {System.out.println("Error en línea "+matchedToken.beginLine+" expresion incorrecta "+image);}
 
+}
 
 MORE :{
 	"//": SINGLECOMMENT
@@ -70,7 +75,7 @@ MORE :{
 
 <SINGLECOMMENT> SKIP:
 {
-    <STRLIT:"\n">: DEFAULT
+    <SALTOLINEA:"\n">: DEFAULT
 }
 
 <SINGLECOMMENT> MORE:{
@@ -83,7 +88,7 @@ MORE :{
 
 <MULTIPLECOMMENT> SKIP:
 {
-    <STRLOT:"*/">: DEFAULT
+    <ENDCOMMENT:"*/">: DEFAULT
 }
 
 <MULTIPLECOMMENT> MORE:
@@ -97,7 +102,10 @@ SKIP:
 	" " | "\t" | "\n" | "\r"
 }
 
-SKIP: {<~[]>{}}
+SPECIAL_TOKEN:
+{
+	<NOVALIDO: ~[] > {System.out.println(">"+matchedToken.beginLine+":"+image+": Caracter no válido");}
+}
 
 void unaExpresion(): {}
 {
@@ -105,5 +113,5 @@ void unaExpresion(): {}
 	<FALSE> | <THIS> | <NEW> | <PRINT> | 
 	<OPCORCHETE> | <CLCORCHETE> | <OPPARENTESIS> | <CLPARENTESIS> | <OPLLAVES> | <CLLLAVES> | <FINSENTENCIA> | 
 	<NUMERO> | <ENTERO> | <REALES> | <PUNTO> | <IGUAL> | <OPAND> | <MENORQUE> | <MAYORQUE> | <MAYORIGUALQUE> | <MENORIGUALQUE> | 
-	<SUMA> | <RESTA> | <MULTIPLICACION> | <DIVISION> | <NEGACION>| <MAYUSCULA> | <MINUSCULA> | <IDENTIFICADOR> )+ <EOF>
+	<SUMA> | <RESTA> | <MULTIPLICACION> | <DIVISION> | <NEGACION>| <MAYUSCULA> | <MINUSCULA> | <IDENTIFICADOR> | <IDINCORRECTO> | <REALINCORRECTO> )+ <EOF>
 }
