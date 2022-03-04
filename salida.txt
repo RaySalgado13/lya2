@@ -1,0 +1,75 @@
+clase: class
+Identificador : Factorial
+Abre llaves: {
+public: public
+static: static
+void: void
+main: main
+Abre parentesis: (
+String: String
+Abre corchete: [
+Cierra corchete: ]
+Identificador : a
+Cierra parentesis: )
+Abre llaves: {
+print: System.out.println
+Abre parentesis: (
+next: new
+Identificador : Fac
+Abre parentesis: (
+Cierra parentesis: )
+punto: .
+Identificador : ComputeFac
+Abre parentesis: (
+numero: 10
+Cierra parentesis: )
+Cierra parentesis: )
+Fin de sentencia: ;
+Cierra llaves: }
+Cierra llaves: }
+clase: class
+Identificador : Fac
+Abre llaves: {
+public: public
+int: int
+Identificador : ComputeFac
+Abre parentesis: (
+int: int
+Identificador : num
+Cierra parentesis: )
+Abre llaves: {
+int: int
+Identificador : num_aux
+Fin de sentencia: ;
+if: if
+Abre parentesis: (
+Identificador : num
+Menor: <
+numero: 1
+Cierra parentesis: )
+Identificador : num_aux
+Igual: =
+numero: 1
+Fin de sentencia: ;
+else: else
+Identificador : num_aux
+Igual: =
+Identificador : num
+Multiplicacion: : *
+Abre parentesis: (
+this : this
+punto: .
+Identificador : ComputeFac
+Abre parentesis: (
+Identificador : num
+Resta: -
+numero: 1
+Cierra parentesis: )
+Cierra parentesis: )
+Fin de sentencia: ;
+return : return
+Identificador : num_aux
+Fin de sentencia: ;
+Cierra llaves: }
+Cierra llaves: }
+Analisis Terminado.
