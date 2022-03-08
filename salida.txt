@@ -1,75 +1,75 @@
-4 : clase: class
-4 Identificador : Factorial
-4 Abre llaves: {
-5 : public: public
-5 : static: static
-5 :void: void
-5 : main: main
-5 Abre parentesis: (
-5 : String: String
-5 Abre corchete: [
-5 Cierra corchete: ]
-5 Identificador : a
-5 Cierra parentesis: )
-5 Abre llaves: {
-6 print: System.out.println
-6 Abre parentesis: (
-6 next: new
-6 Identificador : Fac
-6 Abre parentesis: (
-6 Cierra parentesis: )
-6 punto: .
-6 Identificador : ComputeFac
-6 Abre parentesis: (
+4 : Se encontro la palabra reservada: class
+4 Se encontro un dentificador: Factorial
+4 Se encontro el signo de agrupamiento: {
+5 : Se encontro la palabra reservada: public
+5 : Se encontro la palabra reservada: static
+5 : Se encontro la palabra reservada: void
+5 : Se encontro la palabra reservada: main
+5 Se encontro el signo de agrupamiento: (
+5 : Se encontro la palabra reservada: String
+5 Se encontro el signo de agrupamiento: [
+5 Se encontro el signo de agrupamiento: ]
+5 Se encontro un dentificador: a
+5 Se encontro el signo de agrupamiento: )
+5 Se encontro el signo de agrupamiento: {
+6 Se encontro la palabra reservada: System.out.println
+6 Se encontro el signo de agrupamiento: (
+6 Se encontro la palabra reservada: new
+6 Se encontro un dentificador: Fac
+6 Se encontro el signo de agrupamiento: (
+6 Se encontro el signo de agrupamiento: )
+6 Se encontro el operador: .
+6 Se encontro un dentificador: ComputeFac
+6 Se encontro el signo de agrupamiento: (
 6 numero: 10
-6 Cierra parentesis: )
-6 Cierra parentesis: )
-6 Fin de sentencia: ;
-7 Cierra llaves: }
-8 Cierra llaves: }
-10 : clase: class
-10 Identificador : Fac
-10 Abre llaves: {
-11 : public: public
-11 int: int
-11 Identificador : ComputeFac
-11 Abre parentesis: (
-11 int: int
-11 Identificador : num
-11 Cierra parentesis: )
-11 Abre llaves: {
-12 int: int
-12 Identificador : num_aux
-12 Fin de sentencia: ;
-14 if: if
-14 Abre parentesis: (
-14 Identificador : num
-14 Menor: <
+6 Se encontro el signo de agrupamiento: )
+6 Se encontro el signo de agrupamiento: )
+6 Se encontro el signo de agrupamiento: ;
+7 Se encontro el signo de agrupamiento: }
+8 Se encontro el signo de agrupamiento: }
+10 : Se encontro la palabra reservada: class
+10 Se encontro un dentificador: Fac
+10 Se encontro el signo de agrupamiento: {
+11 : Se encontro la palabra reservada: public
+11 Se encontro la palabra reservada: int
+11 Se encontro un dentificador: ComputeFac
+11 Se encontro el signo de agrupamiento: (
+11 Se encontro la palabra reservada: int
+11 Se encontro un dentificador: num
+11 Se encontro el signo de agrupamiento: )
+11 Se encontro el signo de agrupamiento: {
+12 Se encontro la palabra reservada: int
+12 Se encontro un dentificador: num_aux
+12 Se encontro el signo de agrupamiento: ;
+14 Se encontro la palabra reservada: if
+14 Se encontro el signo de agrupamiento: (
+14 Se encontro un dentificador: num
+14 Se encontro el operador: <
 14 numero: 1
-14 Cierra parentesis: )
-14 Identificador : num_aux
-14 Igual: =
+14 Se encontro el signo de agrupamiento: )
+14 Se encontro un dentificador: num_aux
+14 Se encontro el operador: =
 14 numero: 1
-14 Fin de sentencia: ;
-15 else: else
-15 Identificador : num_aux
-15 Igual: =
-15 Identificador : num
-15 Multiplicacion: : *
-15 Abre parentesis: (
-15 this : this
-15 punto: .
-15 Identificador : ComputeFac
-15 Abre parentesis: (
-15 Identificador : num
-15 Resta: -
+14 Se encontro el signo de agrupamiento: ;
+15 Se encontro la palabra reservada: else
+15 Se encontro un dentificador: num_aux
+15 Se encontro el operador: =
+15 Se encontro un dentificador: num
+15 Se encontro el operador: *
+15 Se encontro el signo de agrupamiento: (
+15 Se encontro la palabra reservada: this
+15 Se encontro el operador: .
+15 Se encontro un dentificador: ComputeFac
+15 Se encontro el signo de agrupamiento: (
+15 Se encontro un dentificador: num
+15 Se encontro el operador: -
 15 numero: 1
-15 Cierra parentesis: )
-15 Cierra parentesis: )
-15 Fin de sentencia: ;
-17 : return : return
-17 Identificador : num_aux
-17 Fin de sentencia: ;
-18 Cierra llaves: }
-19 Cierra llaves: }
+15 Se encontro el signo de agrupamiento: )
+15 Se encontro el signo de agrupamiento: )
+15 Se encontro el signo de agrupamiento: ;
+17 : Se encontro la palabra reservada: return
+17 Se encontro un dentificador: num_aux
+17 Se encontro el signo de agrupamiento: ;
+18 Se encontro el signo de agrupamiento: }
+19 Se encontro el signo de agrupamiento: }
 Analisis Terminado.

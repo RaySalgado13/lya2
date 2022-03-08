@@ -1,0 +1,16 @@
+/*
+Programa 4 de Ejemplo en Minijava
+*/
+class Principal {
+    public static void main(String[] a) {
+        float i=32.45;
+        System.out.println(i);
+    }
+}
+
+class Suma {
+         int num_1,a,b; //Declaracion de varias variables
+         float num_2=65.33;
+         float suma=num_1+num_2+41.32; //Suma con error
+         
+}
