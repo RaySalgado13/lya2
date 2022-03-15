@@ -39,8 +39,8 @@ TOKEN: { <CLLLAVES: "}"	> 	{System.out.println(matchedToken.beginLine + " Se enc
 TOKEN: { <FINSENTENCIA: ";"	> 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: " + image);}	}
 
 
-TOKEN: {<NUMERO: ["0"-"9"] >	{System.out.println(matchedToken.beginLine +  " numero: " + image);}	}
 TOKEN: { <ENTERO: (<NUMERO>)+ > {System.out.println(matchedToken.beginLine + " numero: " + image);}	}
+TOKEN: {<NUMERO: ["0"-"9"] >		}
 TOKEN: { <PUNTO: "." > {System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
 TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ > {System.out.println(matchedToken.beginLine + " Real: " + image);}	}
 
@@ -58,10 +58,11 @@ TOKEN: { <NEGACION: "!" > {System.out.println(matchedToken.beginLine +  " Se enc
 TOKEN: { <COMA: "," > {System.out.println(matchedToken.beginLine + " SSe encontro el operador: " + image);}	}
 
 
-TOKEN: { <MAYUSCULA:  ["A"-"Z"] >	{System.out.println(matchedToken.beginLine + " Se encontro un dentificador: " + image); }	}
-TOKEN: { <MINUSCULA:  ["a"-"z"] >	{System.out.println(matchedToken.beginLine + " Se encontro un dentificador: " + image); }	}
 TOKEN: { <GUIONES: "_" > {System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
-TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )+ ) > {System.out.println(matchedToken.beginLine + " Se encontro un dentificador: " + image); }	}
+TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )* ) > {System.out.println(matchedToken.beginLine + " Se encontro un dentificador: " + image); }	}
+TOKEN: { <MAYUSCULA:  ["A"-"Z"] >}
+TOKEN: { <MINUSCULA:  ["a"-"z"] >}
+
 TOKEN:{
 	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> > {System.out.println(matchedToken.beginLine + " Error en línea "+matchedToken.beginLine+" identificador incorrecto: "+image);}
 	|

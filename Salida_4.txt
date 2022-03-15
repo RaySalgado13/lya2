@@ -15,38 +15,44 @@
 6 : Se encontro la palabra reservada: float
 6 Se encontro un dentificador: i
 6 Se encontro el operador: =
-6 Real: 32.45
+6 Error en línea 6 expresion incorrecta 32.
 6 Se encontro el signo de agrupamiento: ;
-7 Se encontro la palabra reservada: System.out.println
-7 Se encontro el signo de agrupamiento: (
-7 Se encontro un dentificador: i
-7 Se encontro el signo de agrupamiento: )
+7 Se encontro la palabra reservada: int
+7 Error en línea 7 identificador incorrecto: 3hola
+7 Se encontro el operador: =
+7 Error en línea 7 expresion incorrecta 2.
 7 Se encontro el signo de agrupamiento: ;
-8 Se encontro el signo de agrupamiento: }
+8 Se encontro la palabra reservada: System.out.println
+8 Se encontro el signo de agrupamiento: (
+8 Se encontro un dentificador: i
+8 Se encontro el signo de agrupamiento: )
+8 Se encontro el signo de agrupamiento: ;
 9 Se encontro el signo de agrupamiento: }
-11 : Se encontro la palabra reservada: class
-11 Se encontro un dentificador: Suma
-11 Se encontro el signo de agrupamiento: {
-12 Se encontro la palabra reservada: int
-12 Se encontro un dentificador: num_1
-12 SSe encontro el operador: ,
-12 Se encontro un dentificador: a
-12 SSe encontro el operador: ,
-12 Se encontro un dentificador: b
-12 Se encontro el signo de agrupamiento: ;
-13 : Se encontro la palabra reservada: float
-13 Se encontro un dentificador: num_2
-13 Se encontro el operador: =
-13 Real: 65.33
+10 Se encontro el signo de agrupamiento: }
+12 : Se encontro la palabra reservada: class
+12 Se encontro un dentificador: Suma
+12 Se encontro el signo de agrupamiento: {
+13 Se encontro la palabra reservada: int
+13 Se encontro un dentificador: num_1
+13 SSe encontro el operador: ,
+13 Se encontro un dentificador: a
+13 SSe encontro el operador: ,
+13 Se encontro un dentificador: b
 13 Se encontro el signo de agrupamiento: ;
 14 : Se encontro la palabra reservada: float
-14 Se encontro un dentificador: suma
-14 Se encontro el operador: =
-14 Se encontro un dentificador: num_1
-14 Se encontro el operador: +
 14 Se encontro un dentificador: num_2
-14 Se encontro el operador: +
-14 Real: 41.32
+14 Se encontro el operador: =
+14 Real: 65.33
 14 Se encontro el signo de agrupamiento: ;
-16 Se encontro el signo de agrupamiento: }
+>15:#: Caracter no válido
+16 : Se encontro la palabra reservada: float
+16 Se encontro un dentificador: suma
+16 Se encontro el operador: =
+16 Se encontro un dentificador: num_1
+16 Se encontro el operador: +
+16 Se encontro un dentificador: num_2
+16 Se encontro el operador: +
+16 Real: 41.32
+16 Se encontro el signo de agrupamiento: ;
+19 Se encontro el signo de agrupamiento: }
 Analisis Terminado.
