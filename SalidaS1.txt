@@ -23,3 +23,46 @@
 6 Se encontro el signo de agrupamiento: (
 6 numero: 10
 6 Se encontro el signo de agrupamiento: )
+6 Se encontro el signo de agrupamiento: )
+6 Se encontro el signo de agrupamiento: ;
+7 Se encontro el signo de agrupamiento: }
+8 Se encontro el signo de agrupamiento: }
+10 : Se encontro la palabra reservada: class
+10 Se encontro un dentificador: Fac
+10 Se encontro el signo de agrupamiento: {
+11 : Se encontro la palabra reservada: public
+11 Se encontro la palabra reservada: int
+11 Se encontro un dentificador: ComputeFac
+11 Se encontro el signo de agrupamiento: (
+11 Se encontro la palabra reservada: int
+11 Se encontro un dentificador: num
+11 Se encontro el signo de agrupamiento: )
+11 Se encontro el signo de agrupamiento: {
+12 Se encontro la palabra reservada: int
+12 Se encontro un dentificador: num_aux
+12 Se encontro el signo de agrupamiento: ;
+14 Se encontro la palabra reservada: if
+14 Se encontro el signo de agrupamiento: (
+14 Se encontro un dentificador: num
+14 Se encontro el operador: <
+14 numero: 1
+14 Se encontro el signo de agrupamiento: )
+14 Se encontro un dentificador: num_aux
+14 Se encontro el operador: =
+14 numero: 1
+14 Se encontro el signo de agrupamiento: ;
+15 Se encontro la palabra reservada: else
+15 Se encontro un dentificador: num_aux
+15 Se encontro el operador: =
+15 Se encontro un dentificador: num
+15 Se encontro el operador: *
+15 Se encontro el signo de agrupamiento: (
+15 Se encontro la palabra reservada: this
+15 Se encontro el operador: .
+15 Se encontro un dentificador: ComputeFac
+15 Se encontro el signo de agrupamiento: (
+15 Se encontro un dentificador: num
+15 Se encontro el operador: -
+15 numero: 1
+15 Se encontro el signo de agrupamiento: )
+15 Se encontro el signo de agrupamiento: )
