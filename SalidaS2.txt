@@ -1,0 +1,25 @@
+1 : Se encontro la palabra reservada: class
+1 Se encontro un dentificador: BinarySearch
+1 Se encontro el signo de agrupamiento: {
+2 : Se encontro la palabra reservada: public
+2 : Se encontro la palabra reservada: static
+2 : Se encontro la palabra reservada: void
+2 : Se encontro la palabra reservada: main
+2 Se encontro el signo de agrupamiento: (
+2 : Se encontro la palabra reservada: String
+2 Se encontro el signo de agrupamiento: [
+2 Se encontro el signo de agrupamiento: ]
+2 Se encontro un dentificador: a
+2 Se encontro el signo de agrupamiento: )
+2 Se encontro el signo de agrupamiento: {
+3 Se encontro la palabra reservada: System.out.println
+3 Se encontro el signo de agrupamiento: (
+3 Se encontro la palabra reservada: new
+3 Se encontro un dentificador: BS
+3 Se encontro el signo de agrupamiento: (
+3 Se encontro el signo de agrupamiento: )
+3 Se encontro el operador: .
+3 Se encontro un dentificador: Start
+3 Se encontro el signo de agrupamiento: (
+3 numero: 20
+3 Se encontro el signo de agrupamiento: )

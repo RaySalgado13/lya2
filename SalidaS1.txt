@@ -1,0 +1,25 @@
+4 : Se encontro la palabra reservada: class
+4 Se encontro un dentificador: Factorial
+4 Se encontro el signo de agrupamiento: {
+5 : Se encontro la palabra reservada: public
+5 : Se encontro la palabra reservada: static
+5 : Se encontro la palabra reservada: void
+5 : Se encontro la palabra reservada: main
+5 Se encontro el signo de agrupamiento: (
+5 : Se encontro la palabra reservada: String
+5 Se encontro el signo de agrupamiento: [
+5 Se encontro el signo de agrupamiento: ]
+5 Se encontro un dentificador: a
+5 Se encontro el signo de agrupamiento: )
+5 Se encontro el signo de agrupamiento: {
+6 Se encontro la palabra reservada: System.out.println
+6 Se encontro el signo de agrupamiento: (
+6 Se encontro la palabra reservada: new
+6 Se encontro un dentificador: Fac
+6 Se encontro el signo de agrupamiento: (
+6 Se encontro el signo de agrupamiento: )
+6 Se encontro el operador: .
+6 Se encontro un dentificador: ComputeFac
+6 Se encontro el signo de agrupamiento: (
+6 numero: 10
+6 Se encontro el signo de agrupamiento: )

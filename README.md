@@ -1,2 +1,3 @@
 # lya2
-Aristogatos
+## Equipo Aristogatos
+<b> Analizador Sintactico </b>

@@ -1,15 +1,13 @@
 PARSER_BEGIN(Main)
-    	public class Main
-	{
+	public class Main{
 		public static void main (String[] args) throws ParseException{
-		Main
-	 anLex = new Main
-	(System.in);
-		anLex.unaExpresion();		
+		Main anSint = new Main(System.in);
+		anSint.Program();		
 		System.out.println("Analisis Terminado.");
-		}
+	}
 }
 PARSER_END(Main)
+
 TOKEN: { <CLASS: "class" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
 TOKEN: { <PUBLIC: "public" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
 TOKEN: { <STATIC: "static" > {System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
@@ -64,9 +62,9 @@ TOKEN: { <MAYUSCULA:  ["A"-"Z"] >}
 TOKEN: { <MINUSCULA:  ["a"-"z"] >}
 
 TOKEN:{
-	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> > {System.out.println(matchedToken.beginLine + " Error en línea "+matchedToken.beginLine+" identificador incorrecto: "+image);}
+	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> > {System.out.println(matchedToken.beginLine + " Error en línea "+matchedToken.beginLine+" Identifier incorrecto: "+image);}
 	|
-	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)> {System.out.println(matchedToken.beginLine +  " Error en línea "+matchedToken.beginLine+" expresion incorrecta "+image);}
+	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)> {System.out.println(matchedToken.beginLine +  " Error en línea "+matchedToken.beginLine+" Expression incorrecta "+image);}
 
 }
 
@@ -108,14 +106,91 @@ SPECIAL_TOKEN:
 	<NOVALIDO: ~[] > {System.out.println(">"+matchedToken.beginLine+":"+image+": Caracter no válido");}
 }
 
-void unaExpresion(): {}
+void Program(): {}
 {
-	( 
-		<CLASS> | <PUBLIC> | <STATIC> | <VOID> | <MAIN> | <STRING> | <RETURN> | <EXTENDS> | <INT> | <BOOLEAN> | <FLOAT> | <IF> |	
-		<ELSE> | <WHILE> | <TRUE> | <FALSE> | <THIS> | <NEW> | <PRINT> | 
-		<OPCORCHETE> | <CLCORCHETE> | <OPPARENTESIS> | <CLPARENTESIS> | <OPLLAVES> | <CLLLAVES> | <FINSENTENCIA> | 
-		<NUMERO> | <ENTERO> | <COMA> | <REALES> | <PUNTO> | <IGUAL> | <OPAND> | <MENORQUE> | <MAYORQUE> | <MAYORIGUALQUE> | <MENORIGUALQUE> | 
-		<SUMA> | <RESTA> | <MULTIPLICACION> | <DIVISION> | <NEGACION>| <MAYUSCULA> | <MINUSCULA> | <IDENTIFICADOR> | <IDINCORRECTO> 
-		| <REALINCORRECTO> 
-	)+ <EOF>
+	MainClass() ( ClassDeclaration() )* <EOF>
+}
+
+void MainClass (): {}
+{
+	<CLASS> Identifier() 
+		<OPLLAVES> 
+			<PUBLIC> <STATIC> <VOID> <MAIN> 
+			<OPPARENTESIS> 
+				<STRING> <OPCORCHETE> <CLCORCHETE> Identifier() 
+			<CLPARENTESIS> 
+			<OPLLAVES> 
+				Statement()
+			<CLLLAVES> 
+		<CLLLAVES>
+}
+
+void ClassDeclaration(): {}
+{
+	<CLASS> Identifier() ( <EXTENDS> Identifier() )? 
+	<OPLLAVES>
+		( VarDeclaration() )* (MethodDeclaration() )* 
+	<CLLLAVES>
+}
+
+void VarDeclaration(): {}
+{
+	Type() Identifier() <FINSENTENCIA>
+}
+
+void MethodDeclaration(): {}
+{
+	<PUBLIC> Type() Identifier()
+	<OPPARENTESIS>
+		( Type() Identifier() (	<COMA> Type() Identifier() )* )?
+	<CLPARENTESIS>
+	<OPLLAVES>
+		 (LOOKAHEAD(4) VarDeclaration() )* (Statement() )* <RETURN> Expression() <FINSENTENCIA> 
+	<CLLLAVES>
+}
+
+void Type (): {}
+{
+		LOOKAHEAD(2) <INT>  <OPCORCHETE> <CLCORCHETE>
+	|	LOOKAHEAD(2) <REALES> <OPCORCHETE> <CLCORCHETE>
+	|	<BOOLEAN>
+	|	<INT> 
+	| 	<REALES>
+	|	Identifier()
+}
+
+void Statement(): {}
+{
+		<OPLLAVES> ( Statement() )* <CLLLAVES>
+	|	<IF> <OPPARENTESIS> Expression() <CLPARENTESIS> Statement() <ELSE> Statement()
+	|	<WHILE> <OPPARENTESIS> Expression() <CLPARENTESIS> Statement()
+	|	<PRINT> <OPPARENTESIS> Expression() <CLPARENTESIS> <FINSENTENCIA>
+	|	LOOKAHEAD(4)<IDENTIFICADOR> <IGUAL> Expression() <FINSENTENCIA>
+	|	<IDENTIFICADOR> <OPCORCHETE> Expression() <CLCORCHETE> <IGUAL> Expression() <FINSENTENCIA>
+}
+
+
+void Expression(): {}
+{
+		<ENTERO> Expression1()
+	| <TRUE> Expression1()
+	| <FALSE> Expression1()
+	| Identifier() Expression1()
+	| <THIS> Expression1()
+	| LOOKAHEAD(4)<NEW> <INT> <OPCORCHETE> Expression() <CLCORCHETE> Expression1()
+	| <NEW> Identifier() <OPPARENTESIS> <CLPARENTESIS> Expression1()
+	| <NEGACION> Expression() Expression1()
+	| <OPPARENTESIS> Expression() Expression1()
+}
+
+void Expression1(): {}
+{
+	(	<OPAND> | <MENORQUE> | <SUMA> | <RESTA> | <MULTIPLICACION> 	) Expression() Expression1()
+	|	<OPCORCHETE> Expression() <CLCORCHETE>  Expression1()
+	|	<PUNTO> Identifier() <OPPARENTESIS> ( Expression() ( <COMA> Expression() )* )? <CLPARENTESIS> Expression1()
+}
+
+void Identifier():{}
+{
+	<IDENTIFICADOR>
 }
