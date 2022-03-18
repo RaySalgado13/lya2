@@ -1,68 +1,316 @@
+Call:   Program
+  Call:   MainClass
 4 : Se encontro la palabra reservada: class
+    Consumed token: <"class" at line 4 column 1>
+    Call:   Identifier
 4 Se encontro un dentificador: Factorial
+      Consumed token: <<IDENTIFICADOR>: "Factorial" at line 4 column 7>
+    Return: Identifier
 4 Se encontro el signo de agrupamiento: {
+    Consumed token: <"{" at line 4 column 17>
 5 : Se encontro la palabra reservada: public
+    Consumed token: <"public" at line 5 column 5>
 5 : Se encontro la palabra reservada: static
+    Consumed token: <"static" at line 5 column 12>
 5 : Se encontro la palabra reservada: void
+    Consumed token: <"void" at line 5 column 19>
 5 : Se encontro la palabra reservada: main
+    Consumed token: <"main" at line 5 column 24>
 5 Se encontro el signo de agrupamiento: (
+    Consumed token: <"(" at line 5 column 28>
 5 : Se encontro la palabra reservada: String
+    Consumed token: <"String" at line 5 column 29>
 5 Se encontro el signo de agrupamiento: [
+    Consumed token: <"[" at line 5 column 35>
 5 Se encontro el signo de agrupamiento: ]
+    Consumed token: <"]" at line 5 column 36>
+    Call:   Identifier
 5 Se encontro un dentificador: a
+      Consumed token: <<IDENTIFICADOR>: "a" at line 5 column 38>
+    Return: Identifier
 5 Se encontro el signo de agrupamiento: )
+    Consumed token: <")" at line 5 column 39>
 5 Se encontro el signo de agrupamiento: {
+    Consumed token: <"{" at line 5 column 41>
+    Call:   Statement
 6 Se encontro la palabra reservada: System.out.println
+      Consumed token: <"System.out.println" at line 6 column 9>
 6 Se encontro el signo de agrupamiento: (
+      Consumed token: <"(" at line 6 column 27>
+      Call:   Expression
 6 Se encontro la palabra reservada: new
+        Visited token: <"new" at line 6 column 28>; Expected token: <"new">
 6 Se encontro un dentificador: Fac
+        Visited token: <<IDENTIFICADOR>: "Fac" at line 6 column 32>; Expected token: <"int">
+        Consumed token: <"new" at line 6 column 28>
+        Call:   Identifier
+          Consumed token: <<IDENTIFICADOR>: "Fac" at line 6 column 32>
+        Return: Identifier
 6 Se encontro el signo de agrupamiento: (
+        Consumed token: <"(" at line 6 column 35>
 6 Se encontro el signo de agrupamiento: )
+        Consumed token: <")" at line 6 column 36>
+        Call:   Expression1
 6 Se encontro el operador: .
+          Consumed token: <"." at line 6 column 37>
+          Call:   Identifier
 6 Se encontro un dentificador: ComputeFac
+            Consumed token: <<IDENTIFICADOR>: "ComputeFac" at line 6 column 38>
+          Return: Identifier
 6 Se encontro el signo de agrupamiento: (
+          Consumed token: <"(" at line 6 column 48>
 6 numero: 10
+          Call:   Expression
+            Consumed token: <<ENTERO>: "10" at line 6 column 49>
+            Call:   Expression1
 6 Se encontro el signo de agrupamiento: )
+            Return: Expression1
+          Return: Expression
+          Consumed token: <")" at line 6 column 51>
+          Call:   Expression1
 6 Se encontro el signo de agrupamiento: )
+          Return: Expression1
+        Return: Expression1
+      Return: Expression
+      Consumed token: <")" at line 6 column 52>
 6 Se encontro el signo de agrupamiento: ;
+      Consumed token: <";" at line 6 column 53>
+    Return: Statement
 7 Se encontro el signo de agrupamiento: }
+    Consumed token: <"}" at line 7 column 5>
 8 Se encontro el signo de agrupamiento: }
+    Consumed token: <"}" at line 8 column 1>
+  Return: MainClass
 10 : Se encontro la palabra reservada: class
+  Call:   ClassDeclaration
+    Consumed token: <"class" at line 10 column 1>
+    Call:   Identifier
 10 Se encontro un dentificador: Fac
+      Consumed token: <<IDENTIFICADOR>: "Fac" at line 10 column 7>
+    Return: Identifier
 10 Se encontro el signo de agrupamiento: {
+    Consumed token: <"{" at line 10 column 11>
 11 : Se encontro la palabra reservada: public
+    Call:   MethodDeclaration
+      Consumed token: <"public" at line 11 column 5>
+      Call:   Type
 11 Se encontro la palabra reservada: int
+        Visited token: <"int" at line 11 column 12>; Expected token: <"int">
 11 Se encontro un dentificador: ComputeFac
+        Visited token: <<IDENTIFICADOR>: "ComputeFac" at line 11 column 16>; Expected token: <"[">
+        Visited token: <"int" at line 11 column 12>; Expected token: <<REALES>>
+        Consumed token: <"int" at line 11 column 12>
+      Return: Type
+      Call:   Identifier
+        Consumed token: <<IDENTIFICADOR>: "ComputeFac" at line 11 column 16>
+      Return: Identifier
 11 Se encontro el signo de agrupamiento: (
+      Consumed token: <"(" at line 11 column 26>
 11 Se encontro la palabra reservada: int
+      Call:   Type
+        Visited token: <"int" at line 11 column 27>; Expected token: <"int">
 11 Se encontro un dentificador: num
+        Visited token: <<IDENTIFICADOR>: "num" at line 11 column 31>; Expected token: <"[">
+        Visited token: <"int" at line 11 column 27>; Expected token: <<REALES>>
+        Consumed token: <"int" at line 11 column 27>
+      Return: Type
+      Call:   Identifier
+        Consumed token: <<IDENTIFICADOR>: "num" at line 11 column 31>
+      Return: Identifier
 11 Se encontro el signo de agrupamiento: )
+      Consumed token: <")" at line 11 column 34>
 11 Se encontro el signo de agrupamiento: {
+      Consumed token: <"{" at line 11 column 36>
+      Call:   VarDeclaration(LOOKING AHEAD...)
+        Call:   Type(LOOKING AHEAD...)
 12 Se encontro la palabra reservada: int
+          Visited token: <"int" at line 12 column 9>; Expected token: <"int">
 12 Se encontro un dentificador: num_aux
+          Visited token: <<IDENTIFICADOR>: "num_aux" at line 12 column 13>; Expected token: <"[">
+          Visited token: <"int" at line 12 column 9>; Expected token: <<REALES>>
+          Visited token: <"int" at line 12 column 9>; Expected token: <"boolean">
+          Visited token: <"int" at line 12 column 9>; Expected token: <"int">
+        Return: Type(LOOKAHEAD SUCCEEDED)
+        Visited token: <<IDENTIFICADOR>: "num_aux" at line 12 column 13>; Expected token: <<IDENTIFICADOR>>
 12 Se encontro el signo de agrupamiento: ;
+        Visited token: <";" at line 12 column 20>; Expected token: <";">
+      Return: VarDeclaration(LOOKAHEAD SUCCEEDED)
+      Call:   VarDeclaration
+        Call:   Type
+          Visited token: <"int" at line 12 column 9>; Expected token: <"int">
+          Visited token: <<IDENTIFICADOR>: "num_aux" at line 12 column 13>; Expected token: <"[">
+          Visited token: <"int" at line 12 column 9>; Expected token: <<REALES>>
+          Consumed token: <"int" at line 12 column 9>
+        Return: Type
+        Call:   Identifier
+          Consumed token: <<IDENTIFICADOR>: "num_aux" at line 12 column 13>
+        Return: Identifier
+        Consumed token: <";" at line 12 column 20>
+      Return: VarDeclaration
+      Call:   VarDeclaration(LOOKING AHEAD...)
+        Call:   Type(LOOKING AHEAD...)
 14 Se encontro la palabra reservada: if
+          Visited token: <"if" at line 14 column 9>; Expected token: <"int">
+          Visited token: <"if" at line 14 column 9>; Expected token: <<REALES>>
+          Visited token: <"if" at line 14 column 9>; Expected token: <"boolean">
+          Visited token: <"if" at line 14 column 9>; Expected token: <"int">
+          Visited token: <"if" at line 14 column 9>; Expected token: <<REALES>>
+          Visited token: <"if" at line 14 column 9>; Expected token: <<IDENTIFICADOR>>
+        Return: Type(LOOKAHEAD FAILED)
+      Return: VarDeclaration(LOOKAHEAD FAILED)
+      Call:   Statement
+        Consumed token: <"if" at line 14 column 9>
 14 Se encontro el signo de agrupamiento: (
+        Consumed token: <"(" at line 14 column 12>
+        Call:   Expression
 14 Se encontro un dentificador: num
+          Call:   Identifier
+            Consumed token: <<IDENTIFICADOR>: "num" at line 14 column 13>
+          Return: Identifier
+          Call:   Expression1
 14 Se encontro el operador: <
+            Consumed token: <"<" at line 14 column 17>
+            Call:   Expression
 14 numero: 1
+              Consumed token: <<ENTERO>: "1" at line 14 column 19>
+              Call:   Expression1
 14 Se encontro el signo de agrupamiento: )
+              Return: Expression1
+            Return: Expression
+            Call:   Expression1
+            Return: Expression1
+          Return: Expression1
+        Return: Expression
+        Consumed token: <")" at line 14 column 20>
+        Call:   Statement
 14 Se encontro un dentificador: num_aux
+          Visited token: <<IDENTIFICADOR>: "num_aux" at line 14 column 22>; Expected token: <<IDENTIFICADOR>>
 14 Se encontro el operador: =
+          Visited token: <"=" at line 14 column 30>; Expected token: <"=">
+          Call:   Expression(LOOKING AHEAD...)
 14 numero: 1
+            Visited token: <<ENTERO>: "1" at line 14 column 32>; Expected token: <<ENTERO>>
+            Call:   Expression1(LOOKING AHEAD...)
 14 Se encontro el signo de agrupamiento: ;
+              Visited token: <";" at line 14 column 33>; Expected token: <"&&">
+              Visited token: <";" at line 14 column 33>; Expected token: <"<">
+              Visited token: <";" at line 14 column 33>; Expected token: <"+">
+              Visited token: <";" at line 14 column 33>; Expected token: <"-">
+              Visited token: <";" at line 14 column 33>; Expected token: <"*">
+              Visited token: <";" at line 14 column 33>; Expected token: <"[">
+              Visited token: <";" at line 14 column 33>; Expected token: <".">
+            Return: Expression1(LOOKAHEAD SUCCEEDED)
+          Return: Expression(LOOKAHEAD SUCCEEDED)
+          Visited token: <";" at line 14 column 33>; Expected token: <";">
+          Consumed token: <<IDENTIFICADOR>: "num_aux" at line 14 column 22>
+          Consumed token: <"=" at line 14 column 30>
+          Call:   Expression
+            Consumed token: <<ENTERO>: "1" at line 14 column 32>
+            Call:   Expression1
+            Return: Expression1
+          Return: Expression
+          Consumed token: <";" at line 14 column 33>
+        Return: Statement
 15 Se encontro la palabra reservada: else
+        Consumed token: <"else" at line 15 column 9>
+        Call:   Statement
 15 Se encontro un dentificador: num_aux
+          Visited token: <<IDENTIFICADOR>: "num_aux" at line 15 column 14>; Expected token: <<IDENTIFICADOR>>
 15 Se encontro el operador: =
+          Visited token: <"=" at line 15 column 22>; Expected token: <"=">
+          Call:   Expression(LOOKING AHEAD...)
 15 Se encontro un dentificador: num
+            Visited token: <<IDENTIFICADOR>: "num" at line 15 column 24>; Expected token: <<ENTERO>>
+            Visited token: <<IDENTIFICADOR>: "num" at line 15 column 24>; Expected token: <<REALES>>
+            Visited token: <<IDENTIFICADOR>: "num" at line 15 column 24>; Expected token: <"true">
+            Visited token: <<IDENTIFICADOR>: "num" at line 15 column 24>; Expected token: <"false">
+            Visited token: <<IDENTIFICADOR>: "num" at line 15 column 24>; Expected token: <<IDENTIFICADOR>>
+            Call:   Expression1(LOOKING AHEAD...)
 15 Se encontro el operador: *
+              Visited token: <"*" at line 15 column 28>; Expected token: <"&&">
+              Visited token: <"*" at line 15 column 28>; Expected token: <"<">
+              Visited token: <"*" at line 15 column 28>; Expected token: <"+">
+              Visited token: <"*" at line 15 column 28>; Expected token: <"-">
+              Visited token: <"*" at line 15 column 28>; Expected token: <"*">
+              Consumed token: <<IDENTIFICADOR>: "num_aux" at line 15 column 14>
+              Consumed token: <"=" at line 15 column 22>
+              Call:   Expression
+                Call:   Identifier
+                  Consumed token: <<IDENTIFICADOR>: "num" at line 15 column 24>
+                Return: Identifier
+                Call:   Expression1
+                  Consumed token: <"*" at line 15 column 28>
+                  Call:   Expression
 15 Se encontro el signo de agrupamiento: (
+                    Visited token: <"(" at line 15 column 30>; Expected token: <"new">
+                    Consumed token: <"(" at line 15 column 30>
+                    Call:   Expression
 15 Se encontro la palabra reservada: this
+                      Consumed token: <"this" at line 15 column 31>
+                      Call:   Expression1
 15 Se encontro el operador: .
+                        Consumed token: <"." at line 15 column 35>
+                        Call:   Identifier
 15 Se encontro un dentificador: ComputeFac
+                          Consumed token: <<IDENTIFICADOR>: "ComputeFac" at line 15 column 36>
+                        Return: Identifier
 15 Se encontro el signo de agrupamiento: (
+                        Consumed token: <"(" at line 15 column 46>
 15 Se encontro un dentificador: num
+                        Call:   Expression
+                          Call:   Identifier
+                            Consumed token: <<IDENTIFICADOR>: "num" at line 15 column 47>
+                          Return: Identifier
+                          Call:   Expression1
 15 Se encontro el operador: -
+                            Consumed token: <"-" at line 15 column 51>
+                            Call:   Expression
 15 numero: 1
+                              Consumed token: <<ENTERO>: "1" at line 15 column 53>
+                              Call:   Expression1
 15 Se encontro el signo de agrupamiento: )
+                              Return: Expression1
+                            Return: Expression
+                            Call:   Expression1
+                            Return: Expression1
+                          Return: Expression1
+                        Return: Expression
+                        Consumed token: <")" at line 15 column 54>
+                        Call:   Expression1
 15 Se encontro el signo de agrupamiento: )
+                        Return: Expression1
+                      Return: Expression1
+                    Return: Expression
+                    Consumed token: <")" at line 15 column 55>
+                    Call:   Expression1
+15 Se encontro el signo de agrupamiento: ;
+                    Return: Expression1
+                  Return: Expression
+                  Call:   Expression1
+                  Return: Expression1
+                Return: Expression1
+              Return: Expression
+              Consumed token: <";" at line 15 column 56>
+            Return: Statement
+          Return: Statement
+17 : Se encontro la palabra reservada: return
+          Consumed token: <"return" at line 17 column 9>
+          Call:   Expression
+17 Se encontro un dentificador: num_aux
+            Call:   Identifier
+              Consumed token: <<IDENTIFICADOR>: "num_aux" at line 17 column 16>
+            Return: Identifier
+            Call:   Expression1
+17 Se encontro el signo de agrupamiento: ;
+            Return: Expression1
+          Return: Expression
+          Consumed token: <";" at line 17 column 23>
+18 Se encontro el signo de agrupamiento: }
+          Consumed token: <"}" at line 18 column 5>
+        Return: MethodDeclaration
+19 Se encontro el signo de agrupamiento: }
+        Consumed token: <"}" at line 19 column 1>
+      Return: ClassDeclaration
+      Consumed token: <<EOF> at line 19 column 1>
+    Return: Program
+Analisis Terminado.

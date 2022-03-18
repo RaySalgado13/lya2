@@ -1,4 +1,10 @@
-PARSER_BEGIN(Main)
+options {
+Ignore_Case = false;
+STATIC=false;
+DEBUG_PARSER=true;
+DEBUG_LOOKAHEAD=true;
+}
+PARSER_BEGIN(Main) 
 	public class Main{
 		public static void main (String[] args) throws ParseException{
 		Main anSint = new Main(System.in);
@@ -173,6 +179,7 @@ void Statement(): {}
 void Expression(): {}
 {
 		<ENTERO> Expression1()
+	| 	<REALES> Expression1()
 	| <TRUE> Expression1()
 	| <FALSE> Expression1()
 	| Identifier() Expression1()
@@ -180,14 +187,17 @@ void Expression(): {}
 	| LOOKAHEAD(4)<NEW> <INT> <OPCORCHETE> Expression() <CLCORCHETE> Expression1()
 	| <NEW> Identifier() <OPPARENTESIS> <CLPARENTESIS> Expression1()
 	| <NEGACION> Expression() Expression1()
-	| <OPPARENTESIS> Expression() Expression1()
+	| <OPPARENTESIS> Expression() <CLPARENTESIS> Expression1()
 }
 
 void Expression1(): {}
 {
-	(  (	<OPAND> | <MENORQUE> | <SUMA> | <RESTA> | <MULTIPLICACION> 	) Expression() Expression1()
-	|	<OPCORCHETE> Expression() <CLCORCHETE>  Expression1()
-	|	<PUNTO> Identifier() <OPPARENTESIS> ( Expression() ( <COMA> Expression() )* )? <CLPARENTESIS> Expression1())*
+
+	(    
+		(	<OPAND> | <MENORQUE> | <SUMA> | <RESTA> | <MULTIPLICACION> 	) Expression() Expression1()
+		|	<OPCORCHETE> Expression() <CLCORCHETE>  Expression1()
+		|	<PUNTO> Identifier() <OPPARENTESIS> ( Expression() ( <COMA> Expression() )* )? <CLPARENTESIS> Expression1()
+	)*
 }
 
 void Identifier():{}

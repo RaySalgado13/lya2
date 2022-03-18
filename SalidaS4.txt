@@ -1,0 +1,15 @@
+4 : Se encontro la palabra reservada: class
+4 Se encontro un dentificador: Principal
+4 Se encontro el signo de agrupamiento: {
+5 : Se encontro la palabra reservada: public
+5 : Se encontro la palabra reservada: static
+5 : Se encontro la palabra reservada: void
+5 : Se encontro la palabra reservada: main
+5 Se encontro el signo de agrupamiento: (
+5 : Se encontro la palabra reservada: String
+5 Se encontro el signo de agrupamiento: [
+5 Se encontro el signo de agrupamiento: ]
+5 Se encontro un dentificador: a
+5 Se encontro el signo de agrupamiento: )
+5 Se encontro el signo de agrupamiento: {
+6 : Se encontro la palabra reservada: float
