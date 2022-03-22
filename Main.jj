@@ -33,7 +33,7 @@ TOKEN: { <FALSE: "false">	{System.out.println(matchedToken.beginLine +  " Se enc
 TOKEN: { <THIS: "this">	{System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
 TOKEN: { <NEW: "new"> {System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
 TOKEN: { <PRINT: "System.out.println"> {System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
-
+TOKEN: { <LENGTH: "length"> {System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
 TOKEN: { <OPCORCHETE: "[" > 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: " + image);}	}
 TOKEN: { <CLCORCHETE: "]"	> 	{System.out.println(matchedToken.beginLine +  " Se encontro el signo de agrupamiento: " + image);}	}
 TOKEN: { <OPPARENTESIS: "("	> 	{System.out.println(matchedToken.beginLine +  " Se encontro el signo de agrupamiento: " + image);}	}
@@ -115,6 +115,7 @@ SPECIAL_TOKEN:
 void Program(): {}
 {
 	MainClass() ( ClassDeclaration() )* <EOF>
+	MainClass() ( LOOKAHEAD(2) ClassDeclaration() )* <EOF>
 }
 
 void MainClass (): {}
@@ -146,23 +147,25 @@ void VarDeclaration(): {}
 
 void MethodDeclaration(): {}
 {
-	<PUBLIC> Type() Identifier()
+	( LOOKAHEAD(2) <PUBLIC> Type() Identifier()
 	<OPPARENTESIS>
-		( Type() Identifier() (	<COMA> Type() Identifier() )* )?
+		( Type() Identifier() (	<COMA> Type() Identifier() )* )*)?
 	<CLPARENTESIS>
 	<OPLLAVES>
-		 (LOOKAHEAD(4) VarDeclaration() )* (Statement() )* <RETURN> Expression() <FINSENTENCIA> 
+		 (LOOKAHEAD(2) VarDeclaration() )* (Statement() )* <RETURN> Expression() <FINSENTENCIA> 
 	<CLLLAVES>
 }
 
 void Type (): {}
 {
-		LOOKAHEAD(2) <INT>  <OPCORCHETE> <CLCORCHETE>
-	|	LOOKAHEAD(2) <REALES> <OPCORCHETE> <CLCORCHETE>
-	|	<BOOLEAN>
-	|	<INT> 
-	| 	<REALES>
-	|	Identifier()
+	(	
+			LOOKAHEAD(2) <INT>  <OPCORCHETE> <CLCORCHETE>
+		|	LOOKAHEAD(2) <REALES> <OPCORCHETE> <CLCORCHETE>
+		|	<BOOLEAN>
+		|	<INT> 
+		| 	<REALES>
+		|	Identifier()
+	)
 }
 
 void Statement(): {}
@@ -171,8 +174,8 @@ void Statement(): {}
 	|	<IF> <OPPARENTESIS> Expression() <CLPARENTESIS> Statement() <ELSE> Statement()
 	|	<WHILE> <OPPARENTESIS> Expression() <CLPARENTESIS> Statement()
 	|	<PRINT> <OPPARENTESIS> Expression() <CLPARENTESIS> <FINSENTENCIA>
-	|	LOOKAHEAD(4)<IDENTIFICADOR> <IGUAL> Expression() <FINSENTENCIA>
-	|	<IDENTIFICADOR> <OPCORCHETE> Expression() <CLCORCHETE> <IGUAL> Expression() <FINSENTENCIA>
+	|	LOOKAHEAD(2) <IDENTIFICADOR> <IGUAL> Expression() <FINSENTENCIA>
+	|	LOOKAHEAD(2) <IDENTIFICADOR> <OPCORCHETE> Expression() <CLCORCHETE> <IGUAL> Expression() <FINSENTENCIA>
 }
 
 
@@ -184,7 +187,7 @@ void Expression(): {}
 	| <FALSE> Expression1()
 	| Identifier() Expression1()
 	| <THIS> Expression1()
-	| LOOKAHEAD(4)<NEW> <INT> <OPCORCHETE> Expression() <CLCORCHETE> Expression1()
+	| LOOKAHEAD(2)<NEW> <INT> <OPCORCHETE> Expression() <CLCORCHETE> Expression1()
 	| <NEW> Identifier() <OPPARENTESIS> <CLPARENTESIS> Expression1()
 	| <NEGACION> Expression() Expression1()
 	| <OPPARENTESIS> Expression() <CLPARENTESIS> Expression1()
@@ -195,8 +198,9 @@ void Expression1(): {}
 
 	(    
 		(	<OPAND> | <MENORQUE> | <SUMA> | <RESTA> | <MULTIPLICACION> 	) Expression() Expression1()
-		|	<OPCORCHETE> Expression() <CLCORCHETE>  Expression1()
-		|	<PUNTO> Identifier() <OPPARENTESIS> ( Expression() ( <COMA> Expression() )* )? <CLPARENTESIS> Expression1()
+		|	LOOKAHEAD(2) <OPCORCHETE> Expression() <CLCORCHETE>  Expression1()
+		|	LOOKAHEAD(2) <PUNTO> <LENGTH> Expression1()
+		|	LOOKAHEAD(2) <PUNTO> Identifier() <OPPARENTESIS> ( Expression() ( <COMA> Expression() )* )? <CLPARENTESIS> Expression1()
 	)*
 }
 
