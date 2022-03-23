@@ -25,3 +25,41 @@
 11 Se encontro la palabra reservada: int
 11 Se encontro un dentificador: num_1
 11 SSe encontro el operador: ,
+11 Se encontro un dentificador: a
+11 SSe encontro el operador: ,
+11 Se encontro un dentificador: b
+11 Se encontro el signo de agrupamiento: ;
+12 : Se encontro la palabra reservada: float
+12 Se encontro un dentificador: num_2
+12 Se encontro el signo de agrupamiento: ;
+13 : Se encontro la palabra reservada: float
+13 Se encontro un dentificador: suma
+13 Se encontro el signo de agrupamiento: ;
+14 : Se encontro la palabra reservada: public
+14 Se encontro la palabra reservada: int
+14 Se encontro un dentificador: Nuevo
+14 Se encontro el signo de agrupamiento: (
+14 Se encontro la palabra reservada: int
+14 Se encontro un dentificador: s
+14 Se encontro el signo de agrupamiento: )
+14 Se encontro el signo de agrupamiento: {
+15 Se encontro un dentificador: suma
+15 Se encontro el operador: =
+15 Se encontro un dentificador: suma
+15 Se encontro el operador: +
+15 Real: 1.3
+15 Se encontro el operador: +
+15 Real: 6.2
+15 Se encontro el signo de agrupamiento: ;
+16 Se encontro un dentificador: num_1
+16 Se encontro el operador: =
+16 Se encontro un dentificador: a
+16 Se encontro el operador: +
+16 Se encontro un dentificador: b
+16 Se encontro el signo de agrupamiento: ;
+17 : Se encontro la palabra reservada: return
+17 numero: 0
+17 Se encontro el signo de agrupamiento: ;
+18 Se encontro el signo de agrupamiento: }
+21 Se encontro el signo de agrupamiento: }
+Analisis Terminado.

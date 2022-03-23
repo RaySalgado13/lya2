@@ -144,10 +144,18 @@ void ClassDeclaration(): {}
 
 void VarDeclaration(): {}
 {
-	Type() Identifier() <FINSENTENCIA>
+	Type() L() <FINSENTENCIA>
 }
 
+void L(): {}
+{
+	Identifier() LP()	
+}
 
+void LP(): {}
+{
+	( LOOKAHEAD(2) <COMA> Identifier() LP() )*
+}
 
 void MethodDeclaration(): {}
 {
@@ -164,10 +172,10 @@ void Type (): {}
 {
 	(	
 			LOOKAHEAD(2) <INT>  <OPCORCHETE> <CLCORCHETE>
-		|	LOOKAHEAD(2) <REALES> <OPCORCHETE> <CLCORCHETE>
+		|	LOOKAHEAD(2) <FLOAT> <OPCORCHETE> <CLCORCHETE>
 		|	<BOOLEAN>
 		|	<INT> 
-		| 	<REALES>
+		| 	<FLOAT>
 		|	Identifier()
 	)
 }
