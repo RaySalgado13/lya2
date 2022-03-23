@@ -1,9 +1,12 @@
-options {
-Ignore_Case = false;
-STATIC=false;
-DEBUG_PARSER=true;
-DEBUG_LOOKAHEAD=true;
-}
+/*
+	options {
+	Ignore_Case = false;
+	STATIC=false;
+	DEBUG_PARSER=true;
+	DEBUG_LOOKAHEAD=true;
+	}
+*/
+
 PARSER_BEGIN(Main) 
 	public class Main{
 		public static void main (String[] args) throws ParseException{
@@ -114,7 +117,6 @@ SPECIAL_TOKEN:
 
 void Program(): {}
 {
-	MainClass() ( ClassDeclaration() )* <EOF>
 	MainClass() ( LOOKAHEAD(2) ClassDeclaration() )* <EOF>
 }
 
@@ -145,6 +147,8 @@ void VarDeclaration(): {}
 	Type() Identifier() <FINSENTENCIA>
 }
 
+
+
 void MethodDeclaration(): {}
 {
 	( LOOKAHEAD(2) <PUBLIC> Type() Identifier()
@@ -174,8 +178,8 @@ void Statement(): {}
 	|	<IF> <OPPARENTESIS> Expression() <CLPARENTESIS> Statement() <ELSE> Statement()
 	|	<WHILE> <OPPARENTESIS> Expression() <CLPARENTESIS> Statement()
 	|	<PRINT> <OPPARENTESIS> Expression() <CLPARENTESIS> <FINSENTENCIA>
-	|	LOOKAHEAD(2) <IDENTIFICADOR> <IGUAL> Expression() <FINSENTENCIA>
-	|	LOOKAHEAD(2) <IDENTIFICADOR> <OPCORCHETE> Expression() <CLCORCHETE> <IGUAL> Expression() <FINSENTENCIA>
+	|	LOOKAHEAD(2) Identifier() <IGUAL> Expression() <FINSENTENCIA>
+	|	LOOKAHEAD(2) Identifier() <OPCORCHETE> Expression() <CLCORCHETE> <IGUAL> Expression() <FINSENTENCIA>
 }
 
 

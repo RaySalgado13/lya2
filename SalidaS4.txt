@@ -12,4 +12,16 @@
 5 Se encontro un dentificador: a
 5 Se encontro el signo de agrupamiento: )
 5 Se encontro el signo de agrupamiento: {
-6 : Se encontro la palabra reservada: float
+6 Se encontro la palabra reservada: System.out.println
+6 Se encontro el signo de agrupamiento: (
+6 Se encontro un dentificador: i
+6 Se encontro el signo de agrupamiento: )
+6 Se encontro el signo de agrupamiento: ;
+7 Se encontro el signo de agrupamiento: }
+8 Se encontro el signo de agrupamiento: }
+10 : Se encontro la palabra reservada: class
+10 Se encontro un dentificador: Suma
+10 Se encontro el signo de agrupamiento: {
+11 Se encontro la palabra reservada: int
+11 Se encontro un dentificador: num_1
+11 SSe encontro el operador: ,
