@@ -8,12 +8,38 @@
 */
 
 PARSER_BEGIN(Main) 
+	import java.util.HashMap;
+
 	public class Main{
+
+		HashMap tablaSimbolos = new HashMap<Integer, Simbolo>();
+
 		public static void main (String[] args) throws ParseException{
 		Main anSint = new Main(System.in);
 		anSint.Program();		
 		System.out.println("Analisis Terminado.");
 	}
+
+	public class Simbolo{
+		
+		public String lexema; //lexema, nombre del identificador
+		public String tipoDato; //tipo de dato, int, float, void
+		public String categoria; //categoria, clase, funcion, variable, arreglo
+		public int tamanio; //tamaño del arreglo, cantidad de parametros de la funcion
+		
+		public Simbolo(){
+
+		}
+
+		public Simbolo(String lexema, String tipoDato, String categoria, int tamanio){
+			this.lexema = lexema;
+			this.tipoDato = tipoDato;
+			this.categoria = categoria;
+			this.tamanio = tamanio;
+		}
+
+	}
+
 }
 PARSER_END(Main)
 
@@ -216,7 +242,11 @@ void Expression1(): {}
 	)*
 }
 
-void Identifier():{}
+void Identifier(String lexema, String tipoDato, String categoria, int tamanio):{}
 {
-	<IDENTIFICADOR>
+	<IDENTIFICADOR>{
+		lexema = token.image; 
+		Simbolo s = new Simbolo(lexema, tipoDato, categoria, tamanio);
+		tablaSimbolos.put(s.hashCode(),s);
+	}
 }
