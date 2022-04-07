@@ -1,105 +1,123 @@
-/*
+
 	options {
 	Ignore_Case = false;
 	STATIC=false;
-	DEBUG_PARSER=true;
-	DEBUG_LOOKAHEAD=true;
 	}
-*/
+
 
 PARSER_BEGIN(Main) 
 	import java.util.HashMap;
 
 	public class Main{
 
-		HashMap tablaSimbolos = new HashMap<Integer, Simbolo>();
+		public static HashMap<Integer, Simbolo> tablaSimbolos = new HashMap<Integer, Simbolo>();
 
 		public static void main (String[] args) throws ParseException{
-		Main anSint = new Main(System.in);
-		anSint.Program();		
-		System.out.println("Analisis Terminado.");
-	}
+			Main anSint = new Main(System.in);
+			anSint.Program();		
 
-	public class Simbolo{
-		
-		public String lexema; //lexema, nombre del identificador
-		public String tipoDato; //tipo de dato, int, float, void
-		public String categoria; //categoria, clase, funcion, variable, arreglo
-		public int tamanio; //tamaño del arreglo, cantidad de parametros de la funcion
-		
-		public Simbolo(){
+			for(Object s:tablaSimbolos.values()){
+				System.out.println(s);
+			}
+
+			System.out.println("Analisis Terminado.");
+		}
+
+		public boolean validate(Simbolo simbol){
+			String lexema = simbol.lexema;
+			for(Simbolo s : tablaSimbolos.values()){
+				if(s.lexema.equals(lexema)){
+					return false;
+				}
+			}
+			return true;
+		}
+
+		public class Simbolo{
+			
+			public String lexema; //lexema, nombre del identificador
+			public String tipoDato; //tipo de dato, int, float, void
+			public String categoria; //categoria, clase, funcion, variable, arreglo
+			public int tamanio; //tamaño del arreglo, cantidad de parametros de la funcion
+			
+			public Simbolo(){
+
+			}
+
+			public Simbolo(String lexema, String tipoDato, String categoria, int tamanio){
+				this.lexema = lexema;
+				this.tipoDato = tipoDato;
+				this.categoria = categoria;
+				this.tamanio = tamanio;
+			}
+
+			@Override
+			public String toString(){
+				return lexema+"\t\t"+tipoDato+"\t\t"+categoria+"\t\t"+tamanio;
+			}
 
 		}
 
-		public Simbolo(String lexema, String tipoDato, String categoria, int tamanio){
-			this.lexema = lexema;
-			this.tipoDato = tipoDato;
-			this.categoria = categoria;
-			this.tamanio = tamanio;
-		}
-
 	}
-
-}
 PARSER_END(Main)
 
-TOKEN: { <CLASS: "class" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <PUBLIC: "public" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <STATIC: "static" > {System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <VOID: "void" > {System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <MAIN: "main" >	{System.out.println(matchedToken.beginLine +  " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <STRING: "String" >	{System.out.println(matchedToken.beginLine +  " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <RETURN: "return" > {System.out.println(matchedToken.beginLine +  " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <EXTENDS: "extends" > {System.out.println(matchedToken.beginLine +  " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <INT: "int" > {System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <BOOLEAN: "boolean" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <FLOAT: "float" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}}
-TOKEN: { <IF: "if" >	{System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}}
-TOKEN: { <ELSE: "else" >	{System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <WHILE :"while"> {System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <TRUE: "true"> 	{System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <FALSE: "false">	{System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <THIS: "this">	{System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <NEW: "new"> {System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <PRINT: "System.out.println"> {System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <LENGTH: "length"> {System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
-TOKEN: { <OPCORCHETE: "[" > 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: " + image);}	}
-TOKEN: { <CLCORCHETE: "]"	> 	{System.out.println(matchedToken.beginLine +  " Se encontro el signo de agrupamiento: " + image);}	}
-TOKEN: { <OPPARENTESIS: "("	> 	{System.out.println(matchedToken.beginLine +  " Se encontro el signo de agrupamiento: " + image);}	}
-TOKEN: { <CLPARENTESIS: ")"	> 	{System.out.println(matchedToken.beginLine +  " Se encontro el signo de agrupamiento: " + image);}	}
-TOKEN: { <OPLLAVES: "{"	> 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: " + image);}	}
-TOKEN: { <CLLLAVES: "}"	> 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: "  + image);}	}
-TOKEN: { <FINSENTENCIA: ";"	> 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: " + image);}	}
+TOKEN: { <CLASS: "class" >}
+TOKEN: { <PUBLIC: "public" >}
+TOKEN: { <STATIC: "static" >}
+TOKEN: { <VOID: "void" >}
+TOKEN: { <MAIN: "main" >}
+TOKEN: { <STRING: "String" >}
+TOKEN: { <RETURN: "return" >}
+TOKEN: { <EXTENDS: "extends" >}
+TOKEN: { <INT: "int" >}
+TOKEN: { <BOOLEAN: "boolean" >}
+TOKEN: { <FLOAT: "float" >}
+TOKEN: { <IF: "if" >}
+TOKEN: { <ELSE: "else" >}
+TOKEN: { <WHILE :"while">}
+TOKEN: { <TRUE: "true">}
+TOKEN: { <FALSE: "false">}
+TOKEN: { <THIS: "this">}
+TOKEN: { <NEW: "new">}
+TOKEN: { <PRINT: "System.out.println">}
+TOKEN: { <LENGTH: "length"> }
+TOKEN: { <OPCORCHETE: "[" >}
+TOKEN: { <CLCORCHETE: "]"	>}
+TOKEN: { <OPPARENTESIS: "("	>}
+TOKEN: { <CLPARENTESIS: ")"	>}
+TOKEN: { <OPLLAVES: "{"	> }
+TOKEN: { <CLLLAVES: "}"	> }
+TOKEN: { <FINSENTENCIA: ";"	>}
 
 
-TOKEN: { <ENTERO: (<NUMERO>)+ > {System.out.println(matchedToken.beginLine + " numero: " + image);}	}
+TOKEN: { <ENTERO: (<NUMERO>)+ >}
 TOKEN: {<NUMERO: ["0"-"9"] >		}
-TOKEN: { <PUNTO: "." > {System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
-TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ > {System.out.println(matchedToken.beginLine + " Real: " + image);}	}
+TOKEN: { <PUNTO: "." > }
+TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ >}
 
-TOKEN: { <IGUAL: "=" > {System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image);}	}
-TOKEN: { <OPAND: "&&" >	{System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
-TOKEN: { <MENORQUE: "<" >	{System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
-TOKEN: { <MAYORQUE: ">" >	{System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
-TOKEN: { <MAYORIGUALQUE: ">=" >	{System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image); }	}
-TOKEN: { <MENORIGUALQUE: "<=" >	{System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image); }	}
-TOKEN: { <SUMA: "+" > {System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
-TOKEN: { <RESTA: "-" > {System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image);}	}
-TOKEN: { <MULTIPLICACION: "*" > {System.out.println( matchedToken.beginLine + " Se encontro el operador: " + image);}	}
-TOKEN: { <DIVISION: "/" > {System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image);}	}
-TOKEN: { <NEGACION: "!" > {System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image);}	}
-TOKEN: { <COMA: "," > {System.out.println(matchedToken.beginLine + " SSe encontro el operador: " + image);}	}
+TOKEN: { <IGUAL: "=" >}
+TOKEN: { <OPAND: "&&" >}
+TOKEN: { <MENORQUE: "<" >}
+TOKEN: { <MAYORQUE: ">" >}
+TOKEN: { <MAYORIGUALQUE: ">=" >	}
+TOKEN: { <MENORIGUALQUE: "<=" >	}
+TOKEN: { <SUMA: "+" > }
+TOKEN: { <RESTA: "-" > }
+TOKEN: { <MULTIPLICACION: "*" >}
+TOKEN: { <DIVISION: "/" > }
+TOKEN: { <NEGACION: "!" > }
+TOKEN: { <COMA: "," > }
 
 
-TOKEN: { <GUIONES: "_" > {System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
-TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )* ) > {System.out.println(matchedToken.beginLine + " Se encontro un dentificador: " + image); }	}
+TOKEN: { <GUIONES: "_" >}
+TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )* ) >}
 TOKEN: { <MAYUSCULA:  ["A"-"Z"] >}
 TOKEN: { <MINUSCULA:  ["a"-"z"] >}
 
 TOKEN:{
-	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> > {System.out.println(matchedToken.beginLine + " Error en línea "+matchedToken.beginLine+" Identifier incorrecto: "+image);}
+	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> >
 	|
-	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)> {System.out.println(matchedToken.beginLine +  " Error en línea "+matchedToken.beginLine+" Expression incorrecta "+image);}
+	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)>
 
 }
 
@@ -138,7 +156,7 @@ SKIP:
 
 SPECIAL_TOKEN:
 {
-	<NOVALIDO: ~[] > {System.out.println(">"+matchedToken.beginLine+":"+image+": Caracter no válido");}
+	<NOVALIDO: ~[] >
 }
 
 void Program(): {}
@@ -148,11 +166,11 @@ void Program(): {}
 
 void MainClass (): {}
 {
-	<CLASS> Identifier() 
+	<CLASS> Identifier("void","class",0) 
 		<OPLLAVES> 
 			<PUBLIC> <STATIC> <VOID> <MAIN> 
 			<OPPARENTESIS> 
-				<STRING> <OPCORCHETE> <CLCORCHETE> Identifier() 
+				<STRING> <OPCORCHETE> <CLCORCHETE> Identifier("String","array", 0) 
 			<CLPARENTESIS> 
 			<OPLLAVES> 
 				Statement()
@@ -162,49 +180,59 @@ void MainClass (): {}
 
 void ClassDeclaration(): {}
 {
-	<CLASS> Identifier() ( <EXTENDS> Identifier() )? 
+	<CLASS> Identifier("void","class", 0) ( <EXTENDS> <IDENTIFICADOR> )? 
 	<OPLLAVES>
 		( VarDeclaration() )* (MethodDeclaration() )* 
 	<CLLLAVES>
 }
 
-void VarDeclaration(): {}
+void VarDeclaration(): {String tipo;}
 {
-	Type() L() <FINSENTENCIA>
+	tipo = Type() L(tipo) <FINSENTENCIA>
 }
 
-void L(): {}
+void L(String tipo): {String id;}
 {
-	Identifier() LP()	
+	Identifier(tipo,"variable", 0) LP(tipo)	
 }
 
-void LP(): {}
+void LP(String tipo): {String id;}
 {
-	( LOOKAHEAD(2) <COMA> Identifier() LP() )*
+	( LOOKAHEAD(2) <COMA> 
+	Identifier(tipo,"variable", 0) {
+	} LP(tipo) )*
 }
 
-void MethodDeclaration(): {}
+void MethodDeclaration(): {String tipo; Simbolo simbolo;}
 {
-	( LOOKAHEAD(2) <PUBLIC> Type() Identifier()
+	( LOOKAHEAD(2) 
+	<PUBLIC> tipo = Type() simbolo = Identifier(tipo,"method",0)
 	<OPPARENTESIS>
-		( Type() Identifier() (	<COMA> Type() Identifier() )* )*)?
+		( tipo = Type() Identifier(tipo,"variable",0){
+			tablaSimbolos.get(simbolo.hashCode()).tamanio = 1;
+			
+		} 
+		(	<COMA> tipo = Type() Identifier(tipo, "variable",0){
+			tablaSimbolos.get(simbolo.hashCode()).tamanio += 1;
+		} )* )*)?
 	<CLPARENTESIS>
 	<OPLLAVES>
 		 (LOOKAHEAD(2) VarDeclaration() )* (Statement() )* <RETURN> Expression() <FINSENTENCIA> 
 	<CLLLAVES>
 }
 
-void Type (): {}
+String Type (): {String tipo;}
 {
 	(	
-			LOOKAHEAD(2) <INT>  <OPCORCHETE> <CLCORCHETE>
-		|	LOOKAHEAD(2) <FLOAT> <OPCORCHETE> <CLCORCHETE>
-		|	<BOOLEAN>
-		|	<INT> 
-		| 	<FLOAT>
-		|	Identifier()
-	)
-}
+			LOOKAHEAD(2) <INT>  <OPCORCHETE> <CLCORCHETE> {tipo = "int";}
+		|	LOOKAHEAD(2) <FLOAT> <OPCORCHETE> <CLCORCHETE> {tipo = "float";}
+		|	<BOOLEAN> {tipo = "boolean";}
+		|	<INT> {tipo = "int";}
+		| 	<FLOAT> {tipo = "float";}
+		|	<IDENTIFICADOR>{tipo = token.image;}
+	) {return tipo;}
+} 
+
 
 void Statement(): {}
 {
@@ -212,8 +240,8 @@ void Statement(): {}
 	|	<IF> <OPPARENTESIS> Expression() <CLPARENTESIS> Statement() <ELSE> Statement()
 	|	<WHILE> <OPPARENTESIS> Expression() <CLPARENTESIS> Statement()
 	|	<PRINT> <OPPARENTESIS> Expression() <CLPARENTESIS> <FINSENTENCIA>
-	|	LOOKAHEAD(2) Identifier() <IGUAL> Expression() <FINSENTENCIA>
-	|	LOOKAHEAD(2) Identifier() <OPCORCHETE> Expression() <CLCORCHETE> <IGUAL> Expression() <FINSENTENCIA>
+	|	LOOKAHEAD(2) <IDENTIFICADOR> <IGUAL> Expression() <FINSENTENCIA>
+	|	LOOKAHEAD(2) <IDENTIFICADOR> <OPCORCHETE> Expression() <CLCORCHETE> <IGUAL> Expression() <FINSENTENCIA>
 }
 
 
@@ -223,10 +251,10 @@ void Expression(): {}
 	| 	<REALES> Expression1()
 	| <TRUE> Expression1()
 	| <FALSE> Expression1()
-	| Identifier() Expression1()
+	| <IDENTIFICADOR> Expression1()
 	| <THIS> Expression1()
 	| LOOKAHEAD(2)<NEW> <INT> <OPCORCHETE> Expression() <CLCORCHETE> Expression1()
-	| <NEW> Identifier() <OPPARENTESIS> <CLPARENTESIS> Expression1()
+	| <NEW> <IDENTIFICADOR> <OPPARENTESIS> <CLPARENTESIS> Expression1()
 	| <NEGACION> Expression() Expression1()
 	| <OPPARENTESIS> Expression() <CLPARENTESIS> Expression1()
 }
@@ -238,15 +266,19 @@ void Expression1(): {}
 		(	<OPAND> | <MENORQUE> | <SUMA> | <RESTA> | <MULTIPLICACION> 	) Expression() Expression1()
 		|	LOOKAHEAD(2) <OPCORCHETE> Expression() <CLCORCHETE>  Expression1()
 		|	LOOKAHEAD(2) <PUNTO> <LENGTH> Expression1()
-		|	LOOKAHEAD(2) <PUNTO> Identifier() <OPPARENTESIS> ( Expression() ( <COMA> Expression() )* )? <CLPARENTESIS> Expression1()
+		|	LOOKAHEAD(2) <PUNTO> <IDENTIFICADOR> <OPPARENTESIS> ( Expression() ( <COMA> Expression() )* )? <CLPARENTESIS> Expression1()
 	)*
 }
 
-void Identifier(String lexema, String tipoDato, String categoria, int tamanio):{}
+Simbolo Identifier(String tipoDato, String categoria, int tamanio):{String lexema;}
 {
 	<IDENTIFICADOR>{
 		lexema = token.image; 
 		Simbolo s = new Simbolo(lexema, tipoDato, categoria, tamanio);
-		tablaSimbolos.put(s.hashCode(),s);
+		if (validate(s)){
+			tablaSimbolos.put(s.hashCode(),s);
+		}
+		
+		return s;
 	}
 }
