@@ -41,6 +41,12 @@
 12 Se encontro la palabra reservada: int
 12 Se encontro un dentificador: num_aux
 12 Se encontro el signo de agrupamiento: ;
+13 Se encontro un dentificador: num_aux
+13 Se encontro el operador: =
+13 numero: 4
+13 Se encontro el operador: +
+13 numero: 5
+13 Se encontro el signo de agrupamiento: ;
 14 Se encontro la palabra reservada: if
 14 Se encontro el signo de agrupamiento: (
 14 Se encontro un dentificador: num
@@ -72,4 +78,10 @@
 17 Se encontro el signo de agrupamiento: ;
 18 Se encontro el signo de agrupamiento: }
 19 Se encontro el signo de agrupamiento: }
+num_aux		int		variable		0
+Fac		void		class		0
+Factorial		void		class		0
+a		String		array		0
+ComputeFac		int		method		1
+num		int		variable		0
 Analisis Terminado.

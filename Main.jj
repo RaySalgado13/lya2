@@ -61,66 +61,65 @@ PARSER_BEGIN(Main)
 	}
 PARSER_END(Main)
 
-TOKEN: { <CLASS: "class" >}
-TOKEN: { <PUBLIC: "public" >}
-TOKEN: { <STATIC: "static" >}
-TOKEN: { <VOID: "void" >}
-TOKEN: { <MAIN: "main" >}
-TOKEN: { <STRING: "String" >}
-TOKEN: { <RETURN: "return" >}
-TOKEN: { <EXTENDS: "extends" >}
-TOKEN: { <INT: "int" >}
-TOKEN: { <BOOLEAN: "boolean" >}
-TOKEN: { <FLOAT: "float" >}
-TOKEN: { <IF: "if" >}
-TOKEN: { <ELSE: "else" >}
-TOKEN: { <WHILE :"while">}
-TOKEN: { <TRUE: "true">}
-TOKEN: { <FALSE: "false">}
-TOKEN: { <THIS: "this">}
-TOKEN: { <NEW: "new">}
-TOKEN: { <PRINT: "System.out.println">}
-TOKEN: { <LENGTH: "length"> }
-TOKEN: { <OPCORCHETE: "[" >}
-TOKEN: { <CLCORCHETE: "]"	>}
-TOKEN: { <OPPARENTESIS: "("	>}
-TOKEN: { <CLPARENTESIS: ")"	>}
-TOKEN: { <OPLLAVES: "{"	> }
-TOKEN: { <CLLLAVES: "}"	> }
-TOKEN: { <FINSENTENCIA: ";"	>}
+TOKEN: { <CLASS: "class" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <PUBLIC: "public" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <STATIC: "static" > {System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <VOID: "void" > {System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <MAIN: "main" >	{System.out.println(matchedToken.beginLine +  " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <STRING: "String" >	{System.out.println(matchedToken.beginLine +  " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <RETURN: "return" > {System.out.println(matchedToken.beginLine +  " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <EXTENDS: "extends" > {System.out.println(matchedToken.beginLine +  " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <INT: "int" > {System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <BOOLEAN: "boolean" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <FLOAT: "float" >	{System.out.println(matchedToken.beginLine + " : Se encontro la palabra reservada: " + image);}}
+TOKEN: { <IF: "if" >	{System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}}
+TOKEN: { <ELSE: "else" >	{System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <WHILE :"while"> {System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <TRUE: "true"> 	{System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <FALSE: "false">	{System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <THIS: "this">	{System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <NEW: "new"> {System.out.println(matchedToken.beginLine +  " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <PRINT: "System.out.println"> {System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <LENGTH: "length"> {System.out.println(matchedToken.beginLine + " Se encontro la palabra reservada: " + image);}	}
+TOKEN: { <OPCORCHETE: "[" > 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: " + image);}	}
+TOKEN: { <CLCORCHETE: "]"	> 	{System.out.println(matchedToken.beginLine +  " Se encontro el signo de agrupamiento: " + image);}	}
+TOKEN: { <OPPARENTESIS: "("	> 	{System.out.println(matchedToken.beginLine +  " Se encontro el signo de agrupamiento: " + image);}	}
+TOKEN: { <CLPARENTESIS: ")"	> 	{System.out.println(matchedToken.beginLine +  " Se encontro el signo de agrupamiento: " + image);}	}
+TOKEN: { <OPLLAVES: "{"	> 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: " + image);}	}
+TOKEN: { <CLLLAVES: "}"	> 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: "  + image);}	}
+TOKEN: { <FINSENTENCIA: ";"	> 	{System.out.println(matchedToken.beginLine + " Se encontro el signo de agrupamiento: " + image);}	}
 
 
-TOKEN: { <ENTERO: (<NUMERO>)+ >}
+TOKEN: { <ENTERO: (<NUMERO>)+ > {System.out.println(matchedToken.beginLine + " numero: " + image);}	}
 TOKEN: {<NUMERO: ["0"-"9"] >		}
-TOKEN: { <PUNTO: "." > }
-TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ >}
+TOKEN: { <PUNTO: "." > {System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
+TOKEN: { <REALES: (<NUMERO>)+ <PUNTO> (<NUMERO>)+ > {System.out.println(matchedToken.beginLine + " Real: " + image);}	}
 
-TOKEN: { <IGUAL: "=" >}
-TOKEN: { <OPAND: "&&" >}
-TOKEN: { <MENORQUE: "<" >}
-TOKEN: { <MAYORQUE: ">" >}
-TOKEN: { <MAYORIGUALQUE: ">=" >	}
-TOKEN: { <MENORIGUALQUE: "<=" >	}
-TOKEN: { <SUMA: "+" > }
-TOKEN: { <RESTA: "-" > }
-TOKEN: { <MULTIPLICACION: "*" >}
-TOKEN: { <DIVISION: "/" > }
-TOKEN: { <NEGACION: "!" > }
-TOKEN: { <COMA: "," > }
+TOKEN: { <IGUAL: "=" > {System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image);}	}
+TOKEN: { <OPAND: "&&" >	{System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
+TOKEN: { <MENORQUE: "<" >	{System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
+TOKEN: { <MAYORQUE: ">" >	{System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
+TOKEN: { <MAYORIGUALQUE: ">=" >	{System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image); }	}
+TOKEN: { <MENORIGUALQUE: "<=" >	{System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image); }	}
+TOKEN: { <SUMA: "+" > {System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
+TOKEN: { <RESTA: "-" > {System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image);}	}
+TOKEN: { <MULTIPLICACION: "*" > {System.out.println( matchedToken.beginLine + " Se encontro el operador: " + image);}	}
+TOKEN: { <DIVISION: "/" > {System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image);}	}
+TOKEN: { <NEGACION: "!" > {System.out.println(matchedToken.beginLine +  " Se encontro el operador: " + image);}	}
+TOKEN: { <COMA: "," > {System.out.println(matchedToken.beginLine + " SSe encontro el operador: " + image);}	}
 
 
-TOKEN: { <GUIONES: "_" >}
-TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )* ) >}
+TOKEN: { <GUIONES: "_" > {System.out.println(matchedToken.beginLine + " Se encontro el operador: " + image);}	}
+TOKEN: { <IDENTIFICADOR: ( ( <MAYUSCULA> | <MINUSCULA>) (<MAYUSCULA> | <MINUSCULA> | <NUMERO> | <GUIONES> )* ) > {System.out.println(matchedToken.beginLine + " Se encontro un dentificador: " + image); }	}
 TOKEN: { <MAYUSCULA:  ["A"-"Z"] >}
 TOKEN: { <MINUSCULA:  ["a"-"z"] >}
 
 TOKEN:{
-	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> >
+	<IDINCORRECTO: (<NUMERO> | <GUIONES> | <RESTA>)+ <IDENTIFICADOR> > {System.out.println(matchedToken.beginLine + " Error en línea "+matchedToken.beginLine+" Identifier incorrecto: "+image);}
 	|
-	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)>
+	<REALINCORRECTO: ((<NUMERO>)+ <PUNTO>) | (<PUNTO> (<NUMERO>)+)> {System.out.println(matchedToken.beginLine +  " Error en línea "+matchedToken.beginLine+" Expression incorrecta "+image);}
 
 }
-
 MORE :{
 	"//": SINGLECOMMENT
 }
